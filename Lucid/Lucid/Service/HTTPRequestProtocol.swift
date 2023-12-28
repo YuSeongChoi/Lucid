@@ -11,6 +11,7 @@ import Alamofire
 
 
 protocol RequestFormProtocol: URLRequestConvertible {
+    var api: String { get }
     var base: String { get }
     var path: String { get }
     var method: HTTPMethod { get }
@@ -19,6 +20,7 @@ protocol RequestFormProtocol: URLRequestConvertible {
 extension RequestFormProtocol {
     
     var base: String { ServerConstant.baseURL }
+    var api: String { API_KEY }
     var baseRequest: URLRequest {
         get throws {
             let url = try base.asURL().appendingPathComponent(path)

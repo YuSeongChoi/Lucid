@@ -14,6 +14,11 @@ let ServerConstant: ServerConfiguration = {
     return config
 }()
 
+var API_KEY: String {
+    guard let key = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String else { return "" }
+    return key
+}
+
 struct ServerConfiguration: Hashable, Sendable {
     var baseURL: String
 }
