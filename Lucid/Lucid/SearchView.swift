@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct SearchView: View {
+    
+    @State private var searchName: String = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            VStack {
+                HStack {
+                    TextField("", text: $searchName, prompt: Text("캐릭터명 입력"))
+                }
+            }
+            .padding(EdgeInsets(top: 30, leading: 20, bottom: 30, trailing: 20))
+        }
+        .scrollIndicators(.hidden)
     }
 }
 

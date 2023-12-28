@@ -88,3 +88,75 @@ extension View {
     }
     
 }
+
+extension View {
+    
+    ///bool타입 공용 팝업
+    func presentationPopupView<Content:View>(isPresented:Binding<Bool>, @ViewBuilder content: @escaping () -> Content) -> some View {
+        self
+            .fullScreenCover(isPresented: isPresented) {
+                    ZStack(alignment: .bottom) {
+                        Color.black.opacity(0.3)
+                            .edgesIgnoringSafeArea(.all)
+                            .onTapGesture {
+                                withAnimation {
+                                    isPresented.wrappedValue.toggle()
+                                }
+                            }
+                        content()
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .clearModalBackground()
+                    .ignoresSafeArea()
+            }
+    }
+    
+    ///Identifiable타입 공용 팝업
+    func presentationPopupView<Content:View,Item:Identifiable>(item:Binding<Item?>, @ViewBuilder content: @escaping (Item) -> Content) -> some View {
+        self
+            .fullScreenCover(item:item) { type in
+                VStack {
+                    Spacer()
+                    content(type)
+                }.frame(maxWidth: .infinity,maxHeight: .infinity)
+                    .background(Color.black.opacity(0.5).ignoresSafeArea().onTapGesture { item.wrappedValue = nil })
+                    .clearModalBackground()
+                    .ignoresSafeArea()
+            }
+    }
+    
+    func presentationAlertView<Content:View>(isPresented:Binding<Bool>, @ViewBuilder content: @escaping () -> Content) -> some View {
+        self
+            .fullScreenCover(isPresented: isPresented) {
+                    VStack {
+                        content()
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.black.opacity(0.5).ignoresSafeArea())
+                    .clearModalBackground()
+            }
+    }
+    
+    ///Identifiable타입 공용 알림
+    func presentationAlertView<Content:View,Item:Identifiable>(item:Binding<Item?>, @ViewBuilder content: @escaping (Item) -> Content) -> some View {
+        self
+            .fullScreenCover(item:item) { type in
+                VStack {
+                    content(type)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.black.opacity(0.5).ignoresSafeArea())
+                .clearModalBackground()
+            }
+    }
+    
+}
+
+#if canImport(UIKit)
+extension View {
+    ///키보드 숨기기
+    @MainActor func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+#endif

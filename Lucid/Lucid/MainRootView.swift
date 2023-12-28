@@ -8,9 +8,34 @@
 import SwiftUI
 
 struct MainRootView: View {
+    
+    typealias TabItemType = Constants.MainTabItem
+    
+    @State private var tabSelection: TabItemType = .search
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView(selection: $tabSelection) {
+            SearchView()
+                .tag(TabItemType.search)
+                .tabItem {
+                    Label("조회", systemImage: "house.fill")
+                }
+            
+            InfoView()
+                .tag(TabItemType.info)
+                .tabItem {
+                    Label("정보", systemImage: "crown.fill")
+                }
+            
+            SettingView()
+                .tag(TabItemType.setting)
+                .tabItem {
+                    Label("설정", systemImage: "gearshape")
+                }
+        }
+        .accentColor(.lightishPurple)
     }
+    
 }
 
 #Preview {

@@ -50,6 +50,8 @@
 		5D7326722B3D2C5000128EFE /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7326712B3D2C5000128EFE /* InfoView.swift */; };
 		5D7326742B3D2C5400128EFE /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7326732B3D2C5400128EFE /* SettingView.swift */; };
 		5D7326772B3D2C7F00128EFE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7326762B3D2C7F00128EFE /* Constants.swift */; };
+		5D7326822B3D37F200128EFE /* SwiftUIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7326812B3D37F200128EFE /* SwiftUIEnvironment.swift */; };
+		5D7326852B3D385800128EFE /* SimpleViewControllerRepresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7326842B3D385800128EFE /* SimpleViewControllerRepresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,8 @@
 		5D7326712B3D2C5000128EFE /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		5D7326732B3D2C5400128EFE /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		5D7326762B3D2C7F00128EFE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5D7326812B3D37F200128EFE /* SwiftUIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIEnvironment.swift; sourceTree = "<group>"; };
+		5D7326842B3D385800128EFE /* SimpleViewControllerRepresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleViewControllerRepresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,8 +171,9 @@
 		5D7325E22B3D08D100128EFE /* Lucid */ = {
 			isa = PBXGroup;
 			children = (
-				5D7326752B3D2C6200128EFE /* Constants */,
 				5D73260E2B3D090E00128EFE /* App */,
+				5D7326752B3D2C6200128EFE /* Constants */,
+				5D7326802B3D37E300128EFE /* Common */,
 				5D7326672B3D182200128EFE /* Views */,
 				5D7326562B3D118A00128EFE /* Service */,
 				5D73264C2B3D0F2100128EFE /* Extensions */,
@@ -320,6 +325,15 @@
 				5D7326762B3D2C7F00128EFE /* Constants.swift */,
 			);
 			name = Constants;
+			sourceTree = "<group>";
+		};
+		5D7326802B3D37E300128EFE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5D7326812B3D37F200128EFE /* SwiftUIEnvironment.swift */,
+				5D7326842B3D385800128EFE /* SimpleViewControllerRepresenter.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -486,9 +500,11 @@
 				5D73265F2B3D139100128EFE /* HTTPRequestProtocol.swift in Sources */,
 				5D73264E2B3D0F3100128EFE /* SwiftUI+Extension.swift in Sources */,
 				5D7325E62B3D08D100128EFE /* ContentView.swift in Sources */,
+				5D7326852B3D385800128EFE /* SimpleViewControllerRepresenter.swift in Sources */,
 				5D7326742B3D2C5400128EFE /* SettingView.swift in Sources */,
 				5D7325E42B3D08D100128EFE /* LucidApp.swift in Sources */,
 				5D7326542B3D105700128EFE /* AppDelegate.swift in Sources */,
+				5D7326822B3D37F200128EFE /* SwiftUIEnvironment.swift in Sources */,
 				5D73265D2B3D137100128EFE /* HTTPClient.swift in Sources */,
 				5D7326442B3D0B5B00128EFE /* LucidResources.swift in Sources */,
 				5D7326662B3D17E200128EFE /* HTTPRequestList.swift in Sources */,
