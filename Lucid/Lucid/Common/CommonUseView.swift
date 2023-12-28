@@ -7,12 +7,24 @@
 
 import SwiftUI
 
-struct CommonUseView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+import RswiftResources
 
-#Preview {
-    CommonUseView()
+struct CommonTextField: View {
+    
+    var placeHolder: String
+    var keyboard: UIKeyboardType = .default
+    @Binding var text: String
+    
+    var body: some View {
+        TextField("", text: $text, prompt: Text(placeHolder).foregroundColor(.RGB_157))
+            .pretendBold(size: 18)
+            .keyboardType(keyboard)
+            .padding(EdgeInsets(top: 14, leading: 18, bottom: 14, trailing: 18))
+            .background(.white)
+            .overlay(
+                RoundedRectangle(cornerRadius: 5)
+                    .stroke(Color.RGB_205)
+            )
+    }
+    
 }

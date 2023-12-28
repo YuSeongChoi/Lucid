@@ -14,13 +14,20 @@ struct SearchView: View {
     var body: some View {
         ScrollView {
             VStack {
-                HStack {
-                    TextField("", text: $searchName, prompt: Text("캐릭터명 입력"))
+                VStack(spacing: 20) {
+                    CommonTextField(placeHolder: "캐릭터명 입력", text: $searchName)
+                    
+                    Button("검색") {
+                        print("SEARCH!")
+                    }
+                    .buttonStyle(.purple)
                 }
+                
             }
             .padding(EdgeInsets(top: 30, leading: 20, bottom: 30, trailing: 20))
         }
         .scrollIndicators(.hidden)
+        .padding(.vertical, 1)
     }
 }
 
