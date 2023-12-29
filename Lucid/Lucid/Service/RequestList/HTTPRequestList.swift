@@ -13,10 +13,11 @@ enum HTTPRequestList {}
 
 extension HTTPRequestList {
     
-    struct UserIDRequest: DataRequestFormProtocol, Encodable {
-        var path: String { "" }
+    struct CharacterIDRequest: DataRequestFormProtocol, Encodable {
+        var path: String { "maplestory/v1/id" }
         var method: HTTPMethod { .get }
         var validation: DataRequest.Validation? { nil }
+        var character_name: String
     }
     
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
     
+    @StateObject private var viewModel = SearchViewModel()
     @State private var searchName: String = ""
     
     var body: some View {
@@ -18,7 +19,13 @@ struct SearchView: View {
                     CommonTextField(placeHolder: "캐릭터명 입력", text: $searchName)
                     
                     Button("검색") {
-                        print("SEARCH!")
+                        viewModel.taskStorage.insert(Task {
+                            do {
+                                try await viewModel.requestCharacterID(name: searchName)
+                            } catch {
+                                print(error.localizedDescription)
+                            }
+                        })
                     }
                     .buttonStyle(.purple)
                 }
@@ -28,6 +35,10 @@ struct SearchView: View {
         }
         .scrollIndicators(.hidden)
         .padding(.vertical, 1)
+        .onDisappear {
+            viewModel.taskStorage.forEach{ $0.cancel() }
+            viewModel.taskStorage = []
+        }
     }
 }
 

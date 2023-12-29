@@ -54,6 +54,9 @@
 		5D7326852B3D385800128EFE /* SimpleViewControllerRepresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7326842B3D385800128EFE /* SimpleViewControllerRepresenter.swift */; };
 		5D73268A2B3D3AA100128EFE /* CommonUseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7326892B3D3AA100128EFE /* CommonUseView.swift */; };
 		5D73268D2B3D3BA600128EFE /* CustomStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D73268C2B3D3BA600128EFE /* CustomStyle.swift */; };
+		5D7326952B3D4C6300128EFE /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7326942B3D4C6300128EFE /* SearchViewModel.swift */; };
+		5D7326992B3D5ED900128EFE /* CharacterVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7326982B3D5ED900128EFE /* CharacterVO.swift */; };
+		5D73269C2B3D5F4600128EFE /* CodableWrappers in Frameworks */ = {isa = PBXBuildFile; productRef = 5D73269B2B3D5F4600128EFE /* CodableWrappers */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +127,8 @@
 		5D73268C2B3D3BA600128EFE /* CustomStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStyle.swift; sourceTree = "<group>"; };
 		5D73268F2B3D419100128EFE /* API.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = API.xcconfig; sourceTree = "<group>"; };
 		5D7326922B3D426400128EFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5D7326942B3D4C6300128EFE /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		5D7326982B3D5ED900128EFE /* CharacterVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterVO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D7326422B3D0AF600128EFE /* Alamofire in Frameworks */,
+				5D73269C2B3D5F4600128EFE /* CodableWrappers in Frameworks */,
 				5D73263D2B3D0AEA00128EFE /* RswiftLibrary in Frameworks */,
 				5D73263F2B3D0AEA00128EFE /* rswift in Frameworks */,
 			);
@@ -279,6 +285,7 @@
 			children = (
 				5D73265E2B3D139100128EFE /* HTTPRequestProtocol.swift */,
 				5D73265C2B3D137100128EFE /* HTTPClient.swift */,
+				5D7326972B3D5EA700128EFE /* DataModel */,
 				5D7326642B3D17D200128EFE /* RequestList */,
 			);
 			path = Service;
@@ -323,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				5D73266F2B3D2C4C00128EFE /* SearchView.swift */,
+				5D7326942B3D4C6300128EFE /* SearchViewModel.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -346,6 +354,14 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		5D7326972B3D5EA700128EFE /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				5D7326982B3D5ED900128EFE /* CharacterVO.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -367,6 +383,7 @@
 				5D73263C2B3D0AEA00128EFE /* RswiftLibrary */,
 				5D73263E2B3D0AEA00128EFE /* rswift */,
 				5D7326412B3D0AF600128EFE /* Alamofire */,
+				5D73269B2B3D5F4600128EFE /* CodableWrappers */,
 			);
 			productName = Lucid;
 			productReference = 5D7325E02B3D08D100128EFE /* Lucid.app */;
@@ -443,6 +460,7 @@
 			packageReferences = (
 				5D73263B2B3D0AEA00128EFE /* XCRemoteSwiftPackageReference "R" */,
 				5D7326402B3D0AF600128EFE /* XCRemoteSwiftPackageReference "Alamofire" */,
+				5D73269A2B3D5F4600128EFE /* XCRemoteSwiftPackageReference "CodableWrappers" */,
 			);
 			productRefGroup = 5D7325E12B3D08D100128EFE /* Products */;
 			projectDirPath = "";
@@ -504,6 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D7326952B3D4C6300128EFE /* SearchViewModel.swift in Sources */,
 				5D7326622B3D13CD00128EFE /* ServerConfig.swift in Sources */,
 				5D73268D2B3D3BA600128EFE /* CustomStyle.swift in Sources */,
 				5D7326772B3D2C7F00128EFE /* Constants.swift in Sources */,
@@ -513,6 +532,7 @@
 				5D7325E62B3D08D100128EFE /* ContentView.swift in Sources */,
 				5D7326852B3D385800128EFE /* SimpleViewControllerRepresenter.swift in Sources */,
 				5D7326742B3D2C5400128EFE /* SettingView.swift in Sources */,
+				5D7326992B3D5ED900128EFE /* CharacterVO.swift in Sources */,
 				5D7325E42B3D08D100128EFE /* LucidApp.swift in Sources */,
 				5D7326542B3D105700128EFE /* AppDelegate.swift in Sources */,
 				5D7326822B3D37F200128EFE /* SwiftUIEnvironment.swift in Sources */,
@@ -913,6 +933,14 @@
 				minimumVersion = 5.8.1;
 			};
 		};
+		5D73269A2B3D5F4600128EFE /* XCRemoteSwiftPackageReference "CodableWrappers" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/GottaGetSwifty/CodableWrappers";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.7;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -934,6 +962,11 @@
 		5D7326462B3D0C0800128EFE /* RswiftGenerateInternalResources */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "plugin:RswiftGenerateInternalResources";
+		};
+		5D73269B2B3D5F4600128EFE /* CodableWrappers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D73269A2B3D5F4600128EFE /* XCRemoteSwiftPackageReference "CodableWrappers" */;
+			productName = CodableWrappers;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

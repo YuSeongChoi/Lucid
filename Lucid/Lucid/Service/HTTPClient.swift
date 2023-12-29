@@ -121,13 +121,29 @@ struct DataMonitor: EventMonitor {
         debugDescription = debugDescription.replacingOccurrences(of: "\n", with: "\n│ ")
             .replacingOccurrences(of: "(\\[Body]:)\\s*\n│", with: "[Body]:\n ", options: [.regularExpression])
         
-        if let requestData = response.request?.httpBody,
-           !requestData.isEmpty,
-           debugDescription.contains("[Body]: \(requestData)"),
-           let contentType = response.request?.value(forHTTPHeaderField: "Content-Type"),
-           contentType.lowercased().contains("charset=utf-8") {
-            let requestBody = String(decoding: requestData, as: UTF8.self)
-            debugDescription = debugDescription.replacingOccurrences(of: "[Body]: \(requestData)", with: "[Body]:\n\t\t\(requestBody)")
+        switch request {
+        case let (uploadRequest as UploadRequest):
+            switch uploadRequest.uploadable {
+            case .none:
+                break
+            case .some(.data(_)):
+//                let multipartString = String(decoding: uploadData, as: UTF8.self)
+//                debugDescription = debugDescription.replacingOccurrences(of: "[Body]: None", with: "[Body]:\n\t\t\(multipartString)")
+                break
+            case .some(.file(_, shouldRemove: _)):
+                break
+            case .some(.stream(_)):
+                break
+            }
+        default:
+            if let requestData = response.request?.httpBody,
+               !requestData.isEmpty,
+               debugDescription.contains("[Body]: \(requestData)"),
+               let contentType = response.request?.value(forHTTPHeaderField: "Content-Type"),
+               contentType.lowercased().contains("charset=utf-8") {
+                let requestBody = String(decoding: requestData, as: UTF8.self)
+                debugDescription = debugDescription.replacingOccurrences(of: "[Body]: \(requestData)", with: "[Body]:\n\t\t\(requestBody)")
+            }
         }
         
         logger.log(

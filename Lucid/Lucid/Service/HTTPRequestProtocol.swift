@@ -11,7 +11,6 @@ import Alamofire
 
 
 protocol RequestFormProtocol: URLRequestConvertible {
-    var api: String { get }
     var base: String { get }
     var path: String { get }
     var method: HTTPMethod { get }
@@ -20,11 +19,15 @@ protocol RequestFormProtocol: URLRequestConvertible {
 extension RequestFormProtocol {
     
     var base: String { ServerConstant.baseURL }
-    var api: String { API_KEY }
     var baseRequest: URLRequest {
         get throws {
             let url = try base.asURL().appendingPathComponent(path)
             var request = URLRequest(url: url)
+            var headers: HTTPHeaders = [:]
+            let key = API_KEY.replacingOccurrences(of: "\"", with: "")
+            headers["Content-Type"] = "application/json;charset=UTF-8"
+            headers["x-nxopen-api-key"] = key
+            request.headers = headers
             request.method = method
             return request
         }
