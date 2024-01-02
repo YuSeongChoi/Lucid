@@ -68,6 +68,16 @@ extension DataRequestFormProtocol {
         }
     }
     
+    @Sendable
+    func performRequest(_ interceptor: RequestInterceptor? = nil) async throws -> Data {
+        let request = Session.HTTPclient.request(self, interceptor: interceptor).validate()
+        return try await request
+            .validate()
+            .serializingResponse(using: .string, automaticallyCancelling: true)
+            .response.map{ Data($0.utf8) }.result
+            .mapError{ $0.underlyingError ?? $0 }.get()
+    }
+    
 }
 
 extension DataRequestFormProtocol where Self: Encodable {
@@ -77,3 +87,30 @@ extension DataRequestFormProtocol where Self: Encodable {
     }
     
 }
+
+public struct ValidationError: Error {
+    
+    var message: String?
+    
+//    static var messageValidation: DataRequest.Validation {
+//        { _, response, data in
+//            print("LCK 1")
+//            guard let data = data else {
+//                return .success(())
+//            }
+//            print("LCK 2")
+//            guard (200..<300).contains(response.statusCode) else {
+//                return .success(())
+//            }
+//            print("LCK 3")
+//            let error = try? JSONDecoder().decode(ErrorVO.self, from: data)
+//            return .failure(ValidationError(message: error?.message))
+//        }
+//    }
+    
+}
+
+/// this Procotols network Error will be  not handled by the EventMonitor
+public protocol URLRequestManagedErrorProtocol: URLRequestConvertible {}
+
+public protocol PrefetchRequestProtocol: URLRequestConvertible {}

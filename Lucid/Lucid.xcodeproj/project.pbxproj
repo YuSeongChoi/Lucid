@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D2EB59A2B43AD2A00EB396C /* ErrorVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EB5992B43AD2A00EB396C /* ErrorVO.swift */; };
 		5D7325E42B3D08D100128EFE /* LucidApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7325E32B3D08D100128EFE /* LucidApp.swift */; };
 		5D7325E62B3D08D100128EFE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7325E52B3D08D100128EFE /* ContentView.swift */; };
 		5D7325E82B3D08D300128EFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D7325E72B3D08D300128EFE /* Assets.xcassets */; };
@@ -57,6 +58,11 @@
 		5D7326952B3D4C6300128EFE /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7326942B3D4C6300128EFE /* SearchViewModel.swift */; };
 		5D7326992B3D5ED900128EFE /* CharacterVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7326982B3D5ED900128EFE /* CharacterVO.swift */; };
 		5D73269C2B3D5F4600128EFE /* CodableWrappers in Frameworks */ = {isa = PBXBuildFile; productRef = 5D73269B2B3D5F4600128EFE /* CodableWrappers */; };
+		5D73269F2B3E946E00128EFE /* LoadingIndicatorHostingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D73269E2B3E946E00128EFE /* LoadingIndicatorHostingView.swift */; };
+		5D7326A32B3E966C00128EFE /* AsyncAlgorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 5D7326A22B3E966C00128EFE /* AsyncAlgorithms */; };
+		5D7326A52B3E97D300128EFE /* WindowOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7326A42B3E97D300128EFE /* WindowOverlayView.swift */; };
+		5D7326A82B3E98B700128EFE /* WindowCallbackUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7326A72B3E98B700128EFE /* WindowCallbackUIView.swift */; };
+		5D7326AA2B3EA28200128EFE /* WindowAlertHostingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7326A92B3EA28200128EFE /* WindowAlertHostingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +83,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D2EB5992B43AD2A00EB396C /* ErrorVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorVO.swift; sourceTree = "<group>"; };
 		5D7325E02B3D08D100128EFE /* Lucid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lucid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D7325E32B3D08D100128EFE /* LucidApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LucidApp.swift; sourceTree = "<group>"; };
 		5D7325E52B3D08D100128EFE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -129,6 +136,10 @@
 		5D7326922B3D426400128EFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5D7326942B3D4C6300128EFE /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		5D7326982B3D5ED900128EFE /* CharacterVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterVO.swift; sourceTree = "<group>"; };
+		5D73269E2B3E946E00128EFE /* LoadingIndicatorHostingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorHostingView.swift; sourceTree = "<group>"; };
+		5D7326A42B3E97D300128EFE /* WindowOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowOverlayView.swift; sourceTree = "<group>"; };
+		5D7326A72B3E98B700128EFE /* WindowCallbackUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowCallbackUIView.swift; sourceTree = "<group>"; };
+		5D7326A92B3EA28200128EFE /* WindowAlertHostingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowAlertHostingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +151,7 @@
 				5D73269C2B3D5F4600128EFE /* CodableWrappers in Frameworks */,
 				5D73263D2B3D0AEA00128EFE /* RswiftLibrary in Frameworks */,
 				5D73263F2B3D0AEA00128EFE /* rswift in Frameworks */,
+				5D7326A32B3E966C00128EFE /* AsyncAlgorithms in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +362,10 @@
 				5D7326842B3D385800128EFE /* SimpleViewControllerRepresenter.swift */,
 				5D7326892B3D3AA100128EFE /* CommonUseView.swift */,
 				5D73268C2B3D3BA600128EFE /* CustomStyle.swift */,
+				5D73269E2B3E946E00128EFE /* LoadingIndicatorHostingView.swift */,
+				5D7326A42B3E97D300128EFE /* WindowOverlayView.swift */,
+				5D7326A72B3E98B700128EFE /* WindowCallbackUIView.swift */,
+				5D7326A92B3EA28200128EFE /* WindowAlertHostingView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -358,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				5D7326982B3D5ED900128EFE /* CharacterVO.swift */,
+				5D2EB5992B43AD2A00EB396C /* ErrorVO.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -384,6 +401,7 @@
 				5D73263E2B3D0AEA00128EFE /* rswift */,
 				5D7326412B3D0AF600128EFE /* Alamofire */,
 				5D73269B2B3D5F4600128EFE /* CodableWrappers */,
+				5D7326A22B3E966C00128EFE /* AsyncAlgorithms */,
 			);
 			productName = Lucid;
 			productReference = 5D7325E02B3D08D100128EFE /* Lucid.app */;
@@ -461,6 +479,7 @@
 				5D73263B2B3D0AEA00128EFE /* XCRemoteSwiftPackageReference "R" */,
 				5D7326402B3D0AF600128EFE /* XCRemoteSwiftPackageReference "Alamofire" */,
 				5D73269A2B3D5F4600128EFE /* XCRemoteSwiftPackageReference "CodableWrappers" */,
+				5D7326A12B3E966C00128EFE /* XCRemoteSwiftPackageReference "swift-async-algorithms" */,
 			);
 			productRefGroup = 5D7325E12B3D08D100128EFE /* Products */;
 			projectDirPath = "";
@@ -533,14 +552,19 @@
 				5D7326852B3D385800128EFE /* SimpleViewControllerRepresenter.swift in Sources */,
 				5D7326742B3D2C5400128EFE /* SettingView.swift in Sources */,
 				5D7326992B3D5ED900128EFE /* CharacterVO.swift in Sources */,
+				5D7326A52B3E97D300128EFE /* WindowOverlayView.swift in Sources */,
+				5D2EB59A2B43AD2A00EB396C /* ErrorVO.swift in Sources */,
 				5D7325E42B3D08D100128EFE /* LucidApp.swift in Sources */,
 				5D7326542B3D105700128EFE /* AppDelegate.swift in Sources */,
 				5D7326822B3D37F200128EFE /* SwiftUIEnvironment.swift in Sources */,
 				5D73268A2B3D3AA100128EFE /* CommonUseView.swift in Sources */,
 				5D73265D2B3D137100128EFE /* HTTPClient.swift in Sources */,
+				5D7326A82B3E98B700128EFE /* WindowCallbackUIView.swift in Sources */,
 				5D7326442B3D0B5B00128EFE /* LucidResources.swift in Sources */,
 				5D7326662B3D17E200128EFE /* HTTPRequestList.swift in Sources */,
+				5D73269F2B3E946E00128EFE /* LoadingIndicatorHostingView.swift in Sources */,
 				5D7326702B3D2C4C00128EFE /* SearchView.swift in Sources */,
+				5D7326AA2B3EA28200128EFE /* WindowAlertHostingView.swift in Sources */,
 				5D73264A2B3D0EFE00128EFE /* SwiftUI+Resources.swift in Sources */,
 				5D7326692B3D182E00128EFE /* MainRootView.swift in Sources */,
 				5D7326722B3D2C5000128EFE /* InfoView.swift in Sources */,
@@ -941,6 +965,14 @@
 				minimumVersion = 2.0.7;
 			};
 		};
+		5D7326A12B3E966C00128EFE /* XCRemoteSwiftPackageReference "swift-async-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-async-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -967,6 +999,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5D73269A2B3D5F4600128EFE /* XCRemoteSwiftPackageReference "CodableWrappers" */;
 			productName = CodableWrappers;
+		};
+		5D7326A22B3E966C00128EFE /* AsyncAlgorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D7326A12B3E966C00128EFE /* XCRemoteSwiftPackageReference "swift-async-algorithms" */;
+			productName = AsyncAlgorithms;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

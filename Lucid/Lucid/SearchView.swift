@@ -29,7 +29,6 @@ struct SearchView: View {
                     }
                     .buttonStyle(.purple)
                 }
-                
             }
             .padding(EdgeInsets(top: 30, leading: 20, bottom: 30, trailing: 20))
         }

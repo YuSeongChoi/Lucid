@@ -152,6 +152,27 @@ extension View {
     
 }
 
+struct AlertProvider:Identifiable {
+    let id = UUID()
+    let alert:Alert
+    static func make(title:String = "", msg:String = "") -> AlertProvider {
+        .init(alert: .init(title: Text(title), message: Text(msg), dismissButton: .default(Text("확인"))))
+    }
+}
+
+struct UniqueIdentifiableItem<T>: Identifiable {
+    let id = UUID()
+    let item:T
+}
+
+extension UniqueIdentifiableItem: Equatable where T: Equatable {
+    
+}
+
+extension UniqueIdentifiableItem: Hashable where T : Hashable {
+
+}
+
 #if canImport(UIKit)
 extension View {
     ///키보드 숨기기

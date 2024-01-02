@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @Environment(\.colorScheme) private var colorScheme
+    @EnvironmentObject private var appDelegate: AppDelegate
+    
     var body: some View {
-        NavigationStack {
-            MainRootView()
+        ZStack {
+            if appDelegate.showIndicator {
+                LoadingIndicatorHostingView()
+            }
+            WindowAlertHostingView()
+            NavigationStack {
+                MainRootView()
+            }
         }
     }
+    
 }
 
 #Preview {

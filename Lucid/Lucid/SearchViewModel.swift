@@ -28,7 +28,7 @@ extension SearchViewModel {
                 .result.mapError{ $0.underlyingError ?? $0 }
                 .get()
             self.ocid = result.ocid
-        } catch AFError.explicitlyCancelled {
+        } catch {
             
         }
     }

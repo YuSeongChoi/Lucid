@@ -17,7 +17,8 @@ extension Session {
         
 //        let eventLogger = APIEventLogger()
         let eventLogger = DataMonitor()
-        let session = Session(configuration: config, cachedResponseHandler: ResponseCacher.cache, eventMonitors: [eventLogger])
+        let eventMonitors: [EventMonitor] = [DataMonitor(), AlertEventMonitor()]
+        let session = Session(configuration: config, cachedResponseHandler: ResponseCacher.cache, eventMonitors: eventMonitors)
         
         return session
     }
@@ -93,6 +94,38 @@ struct APIEventLogger: EventMonitor {
     
 }
 
+struct AlertEventMonitor: EventMonitor {
+    
+    var queue: DispatchQueue { .global(qos: .userInitiated) }
+    
+    func requestDidFinish(_ request: Request) {
+        guard let error = request.error, !error.isExplicitlyCancelledError else {
+            return
+        }
+        if let dataRequest = request as? DataRequest, dataRequest.convertible is URLRequestManagedErrorProtocol {
+            
+        } else {
+            let notification = Notification(name: WindowAlertHostingView.AlertNotificationName, object: error.underlyingError ?? error)
+            NotificationCenter.default.post(notification)
+        }
+    }
+    
+    func request<Value>(_ request: DataStreamRequest, didParseStream response: DataResponse<Value, AFError>) {
+        guard let error = response.error,
+              case .responseSerializationFailed = error else {
+            return
+        }
+        
+        if request.convertible is URLRequestManagedErrorProtocol {
+            
+        } else {
+            let notification = Notification(name: WindowAlertHostingView.AlertNotificationName, object: error.underlyingError ?? error)
+            NotificationCenter.default.post(notification)
+        }
+    }
+    
+}
+
 struct DataMonitor: EventMonitor {
     
     let logger = Logger(
@@ -158,4 +191,11 @@ struct DataMonitor: EventMonitor {
     
 }
 
-
+final class NetworkAlert {
+    
+    @MainActor
+    class func dismissNetworkAlert() {
+        NotificationCenter.default.post(name: WindowAlertHostingView.AlertDismissNotificationName, object: nil)
+    }
+    
+}
