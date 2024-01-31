@@ -33,4 +33,17 @@ extension SearchViewModel {
         }
     }
     
+    func requestBasicInfo(ocid: String) async throws {
+        do {
+            let result = try await HTTPRequestList.CharacterBasicInfoRequest(ocid: ocid)
+                .buildDataRequest()
+                .serializingDecodable(CharacterBasicInfoVO.self, automaticallyCancelling: true)
+                .result.mapError{ $0.underlyingError ?? $0 }
+                .get()
+            print("result : \(result)")
+        } catch {
+            
+        }
+    }
+    
 }

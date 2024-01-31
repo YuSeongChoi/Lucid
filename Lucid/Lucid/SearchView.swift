@@ -17,11 +17,12 @@ struct SearchView: View {
             VStack {
                 VStack(spacing: 20) {
                     CommonTextField(placeHolder: "캐릭터명 입력", text: $searchName)
-                    
+
                     Button("검색") {
                         viewModel.taskStorage.insert(Task {
                             do {
                                 try await viewModel.requestCharacterID(name: searchName)
+                                try await viewModel.requestBasicInfo(ocid: viewModel.ocid)
                             } catch {
                                 print(error.localizedDescription)
                             }

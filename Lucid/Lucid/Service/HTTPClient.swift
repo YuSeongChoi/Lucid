@@ -16,7 +16,6 @@ extension Session {
         config.timeoutIntervalForRequest = 30
         
 //        let eventLogger = APIEventLogger()
-        let eventLogger = DataMonitor()
         let eventMonitors: [EventMonitor] = [DataMonitor(), AlertEventMonitor()]
         let session = Session(configuration: config, cachedResponseHandler: ResponseCacher.cache, eventMonitors: eventMonitors)
         
