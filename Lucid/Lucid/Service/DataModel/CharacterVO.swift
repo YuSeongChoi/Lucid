@@ -13,7 +13,7 @@ struct CharacterIDVO: Codable, Hashable {
     var ocid: String
 }
 
-struct CharacterBasicInfoVO: Codable, Hashable {
+struct CharacterBasicVO: Codable, Hashable {
     /// 조회 기준일(KST, 일 단위 데이터로 시,분은 일괄 0으로 표기)
     var date: String
     /// 캐릭터 명
@@ -36,4 +36,22 @@ struct CharacterBasicInfoVO: Codable, Hashable {
     var character_guild_name: String
     /// 캐릭터 외형 이미지
     var character_image: String
+}
+
+struct CharacterDetailVO: Codable, Hashable {
+    /// 조회 기준일
+    var date: String
+    /// 캐릭터 직업
+    var character_class: String
+    /// 현재 스탯 정보
+    var final_stat: [StatVO]
+    /// 잔여 ap
+    var remain_ap: Int64
+}
+
+struct StatVO: Codable, Hashable {
+    /// 스탯 명
+    var stat_name: String
+    /// 스탯 값
+    var stat_value: String
 }

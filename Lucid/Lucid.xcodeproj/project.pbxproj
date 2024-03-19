@@ -65,6 +65,7 @@
 		5D7326AA2B3EA28200128EFE /* WindowAlertHostingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7326A92B3EA28200128EFE /* WindowAlertHostingView.swift */; };
 		5DC12B312B6A1F61005FCC3A /* NonConformingWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC12B302B6A1F61005FCC3A /* NonConformingWrapper.swift */; };
 		5DC12B372B6A3672005FCC3A /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC12B362B6A3672005FCC3A /* Util.swift */; };
+		5DC12B402B6B577F005FCC3A /* Character.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DC12B3E2B6B577F005FCC3A /* Character.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 		5D7326A92B3EA28200128EFE /* WindowAlertHostingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowAlertHostingView.swift; sourceTree = "<group>"; };
 		5DC12B302B6A1F61005FCC3A /* NonConformingWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonConformingWrapper.swift; sourceTree = "<group>"; };
 		5DC12B362B6A3672005FCC3A /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		5DC12B3F2B6B577F005FCC3A /* Character.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Character.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -379,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				5D7326982B3D5ED900128EFE /* CharacterVO.swift */,
+				5DC12B3E2B6B577F005FCC3A /* Character.xcdatamodeld */,
 				5D2EB5992B43AD2A00EB396C /* ErrorVO.swift */,
 				5DC12B302B6A1F61005FCC3A /* NonConformingWrapper.swift */,
 			);
@@ -570,6 +573,7 @@
 				5D7326A82B3E98B700128EFE /* WindowCallbackUIView.swift in Sources */,
 				5D7326442B3D0B5B00128EFE /* LucidResources.swift in Sources */,
 				5D7326662B3D17E200128EFE /* HTTPRequestList.swift in Sources */,
+				5DC12B402B6B577F005FCC3A /* Character.xcdatamodeld in Sources */,
 				5D73269F2B3E946E00128EFE /* LoadingIndicatorHostingView.swift in Sources */,
 				5D7326702B3D2C4C00128EFE /* SearchView.swift in Sources */,
 				5D7326AA2B3EA28200128EFE /* WindowAlertHostingView.swift in Sources */,
@@ -1016,6 +1020,19 @@
 			productName = AsyncAlgorithms;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		5DC12B3E2B6B577F005FCC3A /* Character.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5DC12B3F2B6B577F005FCC3A /* Character.xcdatamodel */,
+			);
+			currentVersion = 5DC12B3F2B6B577F005FCC3A /* Character.xcdatamodel */;
+			path = Character.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5D7325D82B3D08D100128EFE /* Project object */;
 }

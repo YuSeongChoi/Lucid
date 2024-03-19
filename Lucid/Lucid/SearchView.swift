@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
     
+    @AppStorage("ocid") private var ocid: String = ""
     @StateObject private var viewModel = SearchViewModel()
     @State private var searchName: String = ""
     
@@ -21,8 +22,11 @@ struct SearchView: View {
                     Button("검색") {
                         viewModel.taskStorage.insert(Task {
                             do {
+                                print("LCK ocid : \(ocid)")
                                 try await viewModel.requestCharacterID(name: searchName)
-                                try await viewModel.requestBasicInfo(ocid: viewModel.ocid)
+                                self.ocid = viewModel.ocid
+                                try await viewModel.requestBasicInfo()
+                                try await viewModel.requestDetailInfo()
                             } catch {
                                 print(error.localizedDescription)
                             }
@@ -35,6 +39,9 @@ struct SearchView: View {
         }
         .scrollIndicators(.hidden)
         .padding(.vertical, 1)
+        .onAppear {
+            print("LCK ocid : \(self.ocid)")
+        }
         .onDisappear {
             viewModel.taskStorage.forEach{ $0.cancel() }
             viewModel.taskStorage = []

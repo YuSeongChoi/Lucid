@@ -1,2 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="23C71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier=""/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="23C71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Basic" representedClassName="Basic" syncable="YES">
+        <attribute name="character_class" optional="YES" attributeType="String"/>
+        <attribute name="character_class_level" optional="YES" attributeType="String"/>
+        <attribute name="character_exp" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="character_exp_rate" optional="YES" attributeType="String"/>
+        <attribute name="character_gender" optional="YES" attributeType="String"/>
+        <attribute name="character_guild_name" optional="YES" attributeType="String"/>
+        <attribute name="character_image" optional="YES" attributeType="String"/>
+        <attribute name="character_level" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="character_name" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="world_name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Detail" representedClassName="Detail" syncable="YES">
+        <attribute name="character_class" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="remain_ap" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="final_stat" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Stat" inverseName="detail" inverseEntity="Stat"/>
+    </entity>
+    <entity name="Stat" representedClassName="Stat" syncable="YES">
+        <attribute name="stat_name" optional="YES" attributeType="String"/>
+        <attribute name="stat_value" optional="YES" attributeType="String"/>
+        <relationship name="detail" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Detail" inverseName="final_stat" inverseEntity="Detail"/>
+    </entity>
+</model>

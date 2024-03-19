@@ -32,18 +32,32 @@ extension SearchViewModel {
             
         }
     }
-    
-    func requestBasicInfo(ocid: String) async throws {
+        
+    func requestBasicInfo() async throws {
         do {
-            let result = try await HTTPRequestList.CharacterBasicInfoRequest(ocid: ocid)
+            let result = try await HTTPRequestList.CharacterBasicInfoRequest(ocid: self.ocid)
                 .buildDataRequest()
-                .serializingDecodable(CharacterBasicInfoVO.self, automaticallyCancelling: true)
+                .serializingDecodable(CharacterBasicVO.self, automaticallyCancelling: true)
                 .result.mapError{ $0.underlyingError ?? $0 }
                 .get()
-            print("result : \(result)")
+            print("basic” : \(result)")
         } catch {
             
         }
     }
     
+    func requestDetailInfo() async throws {
+        do {
+            let result = try await HTTPRequestList.CharacterDetailInfoRequest(ocid: self.ocid)
+                .buildDataRequest()
+                .serializingDecodable(CharacterDetailVO.self, automaticallyCancelling: true)
+                .result.mapError{ $0.underlyingError ?? $0 }
+                .get()
+            print("detail : \(result)")
+        } catch {
+            
+        }
+    }
+        
 }
+                     
