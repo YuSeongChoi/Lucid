@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D0CFA722BA9824C00330482 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0CFA712BA9824C00330482 /* PersistenceController.swift */; };
+		5D0CFA792BAABB5F00330482 /* Detail+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0CFA732BAABB5F00330482 /* Detail+CoreDataClass.swift */; };
+		5D0CFA7A2BAABB5F00330482 /* Detail+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0CFA742BAABB5F00330482 /* Detail+CoreDataProperties.swift */; };
+		5D0CFA7B2BAABB5F00330482 /* Stat+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0CFA752BAABB5F00330482 /* Stat+CoreDataClass.swift */; };
+		5D0CFA7C2BAABB5F00330482 /* Stat+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0CFA762BAABB5F00330482 /* Stat+CoreDataProperties.swift */; };
+		5D0CFA7D2BAABB5F00330482 /* Basic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0CFA772BAABB5F00330482 /* Basic+CoreDataClass.swift */; };
+		5D0CFA7E2BAABB5F00330482 /* Basic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0CFA782BAABB5F00330482 /* Basic+CoreDataProperties.swift */; };
 		5D2EB59A2B43AD2A00EB396C /* ErrorVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2EB5992B43AD2A00EB396C /* ErrorVO.swift */; };
 		5D7325E42B3D08D100128EFE /* LucidApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7325E32B3D08D100128EFE /* LucidApp.swift */; };
 		5D7325E62B3D08D100128EFE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7325E52B3D08D100128EFE /* ContentView.swift */; };
@@ -65,7 +72,7 @@
 		5D7326AA2B3EA28200128EFE /* WindowAlertHostingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7326A92B3EA28200128EFE /* WindowAlertHostingView.swift */; };
 		5DC12B312B6A1F61005FCC3A /* NonConformingWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC12B302B6A1F61005FCC3A /* NonConformingWrapper.swift */; };
 		5DC12B372B6A3672005FCC3A /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC12B362B6A3672005FCC3A /* Util.swift */; };
-		5DC12B402B6B577F005FCC3A /* Character.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DC12B3E2B6B577F005FCC3A /* Character.xcdatamodeld */; };
+		5DC12B402B6B577F005FCC3A /* LucidData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DC12B3E2B6B577F005FCC3A /* LucidData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +93,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D0CFA712BA9824C00330482 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		5D0CFA732BAABB5F00330482 /* Detail+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Detail+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5D0CFA742BAABB5F00330482 /* Detail+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Detail+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5D0CFA752BAABB5F00330482 /* Stat+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stat+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5D0CFA762BAABB5F00330482 /* Stat+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stat+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5D0CFA772BAABB5F00330482 /* Basic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Basic+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5D0CFA782BAABB5F00330482 /* Basic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Basic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5D2EB5992B43AD2A00EB396C /* ErrorVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorVO.swift; sourceTree = "<group>"; };
 		5D7325E02B3D08D100128EFE /* Lucid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lucid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D7325E32B3D08D100128EFE /* LucidApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LucidApp.swift; sourceTree = "<group>"; };
@@ -178,6 +192,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D0CFA6F2BA961BD00330482 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5DC12B3E2B6B577F005FCC3A /* LucidData.xcdatamodeld */,
+				5D0CFA732BAABB5F00330482 /* Detail+CoreDataClass.swift */,
+				5D0CFA742BAABB5F00330482 /* Detail+CoreDataProperties.swift */,
+				5D0CFA752BAABB5F00330482 /* Stat+CoreDataClass.swift */,
+				5D0CFA762BAABB5F00330482 /* Stat+CoreDataProperties.swift */,
+				5D0CFA772BAABB5F00330482 /* Basic+CoreDataClass.swift */,
+				5D0CFA782BAABB5F00330482 /* Basic+CoreDataProperties.swift */,
+				5D0CFA712BA9824C00330482 /* PersistenceController.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		5D7325D72B3D08D100128EFE = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				5D7326922B3D426400128EFE /* Info.plist */,
+				5D0CFA6F2BA961BD00330482 /* Data */,
 				5D73260E2B3D090E00128EFE /* App */,
 				5D7326752B3D2C6200128EFE /* Constants */,
 				5D7326802B3D37E300128EFE /* Common */,
@@ -381,7 +411,6 @@
 			isa = PBXGroup;
 			children = (
 				5D7326982B3D5ED900128EFE /* CharacterVO.swift */,
-				5DC12B3E2B6B577F005FCC3A /* Character.xcdatamodeld */,
 				5D2EB5992B43AD2A00EB396C /* ErrorVO.swift */,
 				5DC12B302B6A1F61005FCC3A /* NonConformingWrapper.swift */,
 			);
@@ -550,7 +579,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D0CFA7A2BAABB5F00330482 /* Detail+CoreDataProperties.swift in Sources */,
+				5D0CFA792BAABB5F00330482 /* Detail+CoreDataClass.swift in Sources */,
 				5D7326952B3D4C6300128EFE /* SearchViewModel.swift in Sources */,
+				5D0CFA7C2BAABB5F00330482 /* Stat+CoreDataProperties.swift in Sources */,
 				5D7326622B3D13CD00128EFE /* ServerConfig.swift in Sources */,
 				5D73268D2B3D3BA600128EFE /* CustomStyle.swift in Sources */,
 				5D7326772B3D2C7F00128EFE /* Constants.swift in Sources */,
@@ -561,10 +593,12 @@
 				5D73264E2B3D0F3100128EFE /* SwiftUI+Extension.swift in Sources */,
 				5D7325E62B3D08D100128EFE /* ContentView.swift in Sources */,
 				5D7326852B3D385800128EFE /* SimpleViewControllerRepresenter.swift in Sources */,
+				5D0CFA7D2BAABB5F00330482 /* Basic+CoreDataClass.swift in Sources */,
 				5D7326742B3D2C5400128EFE /* SettingView.swift in Sources */,
 				5D7326992B3D5ED900128EFE /* CharacterVO.swift in Sources */,
 				5D7326A52B3E97D300128EFE /* WindowOverlayView.swift in Sources */,
 				5D2EB59A2B43AD2A00EB396C /* ErrorVO.swift in Sources */,
+				5D0CFA7B2BAABB5F00330482 /* Stat+CoreDataClass.swift in Sources */,
 				5D7325E42B3D08D100128EFE /* LucidApp.swift in Sources */,
 				5D7326542B3D105700128EFE /* AppDelegate.swift in Sources */,
 				5D7326822B3D37F200128EFE /* SwiftUIEnvironment.swift in Sources */,
@@ -573,14 +607,16 @@
 				5D7326A82B3E98B700128EFE /* WindowCallbackUIView.swift in Sources */,
 				5D7326442B3D0B5B00128EFE /* LucidResources.swift in Sources */,
 				5D7326662B3D17E200128EFE /* HTTPRequestList.swift in Sources */,
-				5DC12B402B6B577F005FCC3A /* Character.xcdatamodeld in Sources */,
+				5DC12B402B6B577F005FCC3A /* LucidData.xcdatamodeld in Sources */,
 				5D73269F2B3E946E00128EFE /* LoadingIndicatorHostingView.swift in Sources */,
+				5D0CFA7E2BAABB5F00330482 /* Basic+CoreDataProperties.swift in Sources */,
 				5D7326702B3D2C4C00128EFE /* SearchView.swift in Sources */,
 				5D7326AA2B3EA28200128EFE /* WindowAlertHostingView.swift in Sources */,
 				5D73264A2B3D0EFE00128EFE /* SwiftUI+Resources.swift in Sources */,
 				5D7326692B3D182E00128EFE /* MainRootView.swift in Sources */,
 				5D7326722B3D2C5000128EFE /* InfoView.swift in Sources */,
 				5D7326582B3D11A600128EFE /* ServiceExtension.swift in Sources */,
+				5D0CFA722BA9824C00330482 /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,7 +784,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Lucid/Preview Content\"";
-				DEVELOPMENT_TEAM = Y3SM86Y3Q4;
+				DEVELOPMENT_TEAM = 23Z89DEDAB;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -790,7 +826,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Lucid/Preview Content\"";
-				DEVELOPMENT_TEAM = Y3SM86Y3Q4;
+				DEVELOPMENT_TEAM = 23Z89DEDAB;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1022,13 +1058,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		5DC12B3E2B6B577F005FCC3A /* Character.xcdatamodeld */ = {
+		5DC12B3E2B6B577F005FCC3A /* LucidData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				5DC12B3F2B6B577F005FCC3A /* Character.xcdatamodel */,
 			);
 			currentVersion = 5DC12B3F2B6B577F005FCC3A /* Character.xcdatamodel */;
-			path = Character.xcdatamodeld;
+			path = LucidData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

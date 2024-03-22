@@ -12,9 +12,12 @@ struct LucidApp: App {
     
     @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
     
+    let persistenceController = PersistenceController.shared
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
     
@@ -36,6 +39,7 @@ struct LucidApp: App {
         naviProxy.standardAppearance = barAppearance
         naviProxy.barTintColor = .white
         naviProxy.tintColor = .black
+        
         
         do {
             try LucidResourcesFont.register()

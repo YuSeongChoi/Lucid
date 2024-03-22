@@ -13,6 +13,7 @@ import Alamofire
 final class SearchViewModel: ObservableObject, Identifiable {
     
     @Published var ocid: String = ""
+    @Published var basicInfo: CharacterBasicVO = .init()
     var taskStorage: Set<Task<Void,Never>> = []
     
 }
@@ -40,6 +41,7 @@ extension SearchViewModel {
                 .serializingDecodable(CharacterBasicVO.self, automaticallyCancelling: true)
                 .result.mapError{ $0.underlyingError ?? $0 }
                 .get()
+            self.basicInfo = result
             print("basic” : \(result)")
         } catch {
             
