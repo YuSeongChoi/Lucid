@@ -13,7 +13,7 @@ struct SearchView: View {
     @AppStorage("ocid") private var ocid: String = ""
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Basic.character_name, ascending: false)])
-    private var basic: FetchedResults<Basic>
+    private var basics: FetchedResults<Basic>
     
     @StateObject private var viewModel = SearchViewModel()
     @State private var searchName: String = ""
@@ -27,11 +27,9 @@ struct SearchView: View {
                     Button("검색") {
                         viewModel.taskStorage.insert(Task {
                             do {
-                                print("LCK ocid : \(ocid)")
                                 try await viewModel.requestCharacterID(name: searchName)
                                 self.ocid = viewModel.ocid
                                 try await viewModel.requestBasicInfo()
-                                addBasicInfo(info: viewModel.basicInfo)
                                 try await viewModel.requestDetailInfo()
                             } catch {
                                 print(error.localizedDescription)
@@ -41,17 +39,21 @@ struct SearchView: View {
                     .buttonStyle(.purple)
                 }
                 
-                if !basic.isEmpty {
-                    Text(basic[0].character_name ?? "")
+                Button("삭제") {
+                    
+                }
+                
+                if !basics.isEmpty {
+                    Text(basics[0].character_name ?? "")
+                    if let url = URL(string: basics[0].character_image ?? "") {
+                        AsyncImage(url: url)
+                    }
                 }
             }
             .padding(EdgeInsets(top: 30, leading: 20, bottom: 30, trailing: 20))
         }
         .scrollIndicators(.hidden)
         .padding(.vertical, 1)
-        .onAppear {
-            print("LCK ocid : \(self.ocid)")
-        }
         .onDisappear {
             viewModel.taskStorage.forEach{ $0.cancel() }
             viewModel.taskStorage = []
@@ -84,8 +86,13 @@ struct SearchView: View {
         saveContext()
     }
     
-    func deleteBasicInfo() {
+    func deleteBasicInfo(at offsets: IndexSet) {
+        offsets.forEach { index in
+            let basic = self.basics[index]
+            self.managedObjectContext.delete(basic)
+        }
         
+        saveContext()
     }
     
 }
