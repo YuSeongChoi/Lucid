@@ -31,6 +31,7 @@ struct SearchView: View {
                                 self.ocid = viewModel.ocid
                                 try await viewModel.requestBasicInfo()
                                 try await viewModel.requestDetailInfo()
+                                saveContext()
                             } catch {
                                 print(error.localizedDescription)
                             }
@@ -39,13 +40,9 @@ struct SearchView: View {
                     .buttonStyle(.purple)
                 }
                 
-                Button("삭제") {
-                    
-                }
-                
-                if !basics.isEmpty {
-                    Text(basics[0].character_name ?? "")
-                    if let url = URL(string: basics[0].character_image ?? "") {
+                VStack {
+                    Text(viewModel.basicInfo.character_name)
+                    if let url = URL(string: viewModel.basicInfo.character_image) {
                         AsyncImage(url: url)
                     }
                 }
