@@ -149,7 +149,6 @@
 		5D7326842B3D385800128EFE /* SimpleViewControllerRepresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleViewControllerRepresenter.swift; sourceTree = "<group>"; };
 		5D7326892B3D3AA100128EFE /* CommonUseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUseView.swift; sourceTree = "<group>"; };
 		5D73268C2B3D3BA600128EFE /* CustomStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStyle.swift; sourceTree = "<group>"; };
-		5D73268F2B3D419100128EFE /* API.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = API.xcconfig; sourceTree = "<group>"; };
 		5D7326922B3D426400128EFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5D7326942B3D4C6300128EFE /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		5D7326982B3D5ED900128EFE /* CharacterVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterVO.swift; sourceTree = "<group>"; };
@@ -160,6 +159,7 @@
 		5DC12B302B6A1F61005FCC3A /* NonConformingWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonConformingWrapper.swift; sourceTree = "<group>"; };
 		5DC12B362B6A3672005FCC3A /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		5DC12B3F2B6B577F005FCC3A /* Character.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Character.xcdatamodel; sourceTree = "<group>"; };
+		62F1D93A2BC26C7A008D3013 /* API.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = API.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,7 +271,7 @@
 		5D73260E2B3D090E00128EFE /* App */ = {
 			isa = PBXGroup;
 			children = (
-				5D73268F2B3D419100128EFE /* API.xcconfig */,
+				62F1D93A2BC26C7A008D3013 /* API.xcconfig */,
 				5D7325E92B3D08D300128EFE /* Lucid.entitlements */,
 				5D7326612B3D13CD00128EFE /* ServerConfig.swift */,
 				5D7325E32B3D08D100128EFE /* LucidApp.swift */,
@@ -659,7 +659,6 @@
 /* Begin XCBuildConfiguration section */
 		5D7326032B3D08D300128EFE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5D73268F2B3D419100128EFE /* API.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -722,7 +721,6 @@
 		};
 		5D7326042B3D08D300128EFE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5D73268F2B3D419100128EFE /* API.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -777,6 +775,7 @@
 		};
 		5D7326062B3D08D300128EFE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62F1D93A2BC26C7A008D3013 /* API.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -784,7 +783,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Lucid/Preview Content\"";
-				DEVELOPMENT_TEAM = 23Z89DEDAB;
+				DEVELOPMENT_TEAM = 8N7PD4AXR6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -819,6 +818,7 @@
 		};
 		5D7326072B3D08D300128EFE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62F1D93A2BC26C7A008D3013 /* API.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -826,7 +826,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Lucid/Preview Content\"";
-				DEVELOPMENT_TEAM = 23Z89DEDAB;
+				DEVELOPMENT_TEAM = 8N7PD4AXR6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
