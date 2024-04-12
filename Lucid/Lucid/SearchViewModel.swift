@@ -21,6 +21,7 @@ final class SearchViewModel: ObservableObject, Identifiable {
 // MARK: - Request APIs
 extension SearchViewModel {
     
+    /// 캐릭터 UUID 조회
     func requestCharacterID(name: String) async throws {
         do {
             let result = try await HTTPRequestList.CharacterIDRequest(character_name: name)
@@ -33,7 +34,8 @@ extension SearchViewModel {
             
         }
     }
-        
+     
+    /// 캐릭터 기본 정보 조회
     func requestBasicInfo() async throws {
         do {
             let result = try await HTTPRequestList.CharacterBasicInfoRequest(ocid: self.ocid)
@@ -48,6 +50,7 @@ extension SearchViewModel {
         }
     }
     
+    /// 캐릭터 디테일 정보 조회
     func requestDetailInfo() async throws {
         do {
             let result = try await HTTPRequestList.CharacterDetailInfoRequest(ocid: self.ocid)
@@ -56,6 +59,20 @@ extension SearchViewModel {
                 .result.mapError{ $0.underlyingError ?? $0 }
                 .get()
             print("detail : \(result)")
+        } catch {
+            
+        }
+    }
+    
+    /// 캐릭터 유니언 공격대 정보 조회
+    func requestUnionRaiderInfo() async throws {
+        do {
+            let result = try await HTTPRequestList.UnionRaiderInfoRequest(ocid: self.ocid)
+                .buildDataRequest()
+                .serializingDecodable(UnionRaiderVO.self, automaticallyCancelling: true)
+                .result.mapError{ $0.underlyingError ?? $0 }
+                .get()
+            print("union : \(result)")
         } catch {
             
         }

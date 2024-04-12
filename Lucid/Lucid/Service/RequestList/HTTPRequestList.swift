@@ -39,4 +39,13 @@ extension HTTPRequestList {
         var date: String = Date().addDay(n: -1).string(format: "yyyy-MM-dd")
     }
     
+    // MARK: 유니온 공격대 정보 조회
+    struct UnionRaiderInfoRequest: DataRequestFormProtocol, Encodable {
+        var path: String { "maplestory/v1/user/union-raider" }
+        var method: HTTPMethod { .get }
+        var validation: DataRequest.Validation? { nil }
+        var ocid: String
+        var date: String = Date().addDay(n: -1).string(format: "yyyy-MM-dd")
+    }
+    
 }

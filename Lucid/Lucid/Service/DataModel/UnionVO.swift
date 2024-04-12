@@ -9,18 +9,28 @@ import Foundation
 
 import CodableWrappers
 
-struct UnionVO: Codable, Hashable {
+struct UnionRaiderVO: Codable, Hashable {
     var date: String
     /// 유니온 공격대원 효과
     var union_raider_stat: [String]
     /// 유니온 공격대 점령 효과
     var union_occupied_stat: [String]
     /// 유니온 공격대 배치
-    var union_inner_state: [UnionInnerStatVO]
+    var union_inner_stat: [UnionInnerStatVO]
     /// 유니온 블록 정보
     var union_block: [UnionBlockVO]
     /// 적용 중인 프리셋 번호
     var use_preset_no: Int64
+    /// 유니온 프리셋 1번 정보
+    var union_raider_preset_1: UnionPresetVO
+    /// 유니온 프리셋 2번 정보
+    var union_raider_preset_2: UnionPresetVO
+    /// 유니온 프리셋 3번 정보
+    var union_raider_preset_3: UnionPresetVO
+    /// 유니온 프리셋 4번 정보
+    var union_raider_preset_4: UnionPresetVO
+    /// 유니온 프리셋 5번 정보
+    var union_raider_preset_5: UnionPresetVO
 }
 
 /// 유니온 공격대 배치
@@ -58,7 +68,14 @@ struct UnionPointVO: Codable, Hashable {
     var y: Int64
 }
 
-/// 유니온 프리셋 정보
+/// 유니온 프리셋
 struct UnionPresetVO: Codable, Hashable {
-    
+    /// 유니온 공격대원 효과
+    var union_raider_stat: [String]
+    /// 유니온 공격대 점령 효과
+    var union_occupied_stat: [String]
+    /// 유니온 블록 정보
+    var union_block: [UnionBlockVO]
+    /// 유니온 공격대 배치
+    var union_inner_stat: [UnionInnerStatVO]
 }
