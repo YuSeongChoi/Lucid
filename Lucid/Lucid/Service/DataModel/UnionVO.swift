@@ -59,3 +59,6 @@ struct UnionPointVO: Codable, Hashable {
 }
 
 /// 유니온 프리셋 정보
+struct UnionPresetVO: Codable, Hashable {
+    
+}
