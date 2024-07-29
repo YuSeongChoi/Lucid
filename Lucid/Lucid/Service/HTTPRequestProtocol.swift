@@ -89,25 +89,25 @@ extension DataRequestFormProtocol where Self: Encodable {
     
 }
 
+// MARK: - 에러처리
 public struct ValidationError: Error {
     
     var message: String?
     
-//    static var messageValidation: DataRequest.Validation {
-//        { _, response, data in
-//            print("LCK 1")
-//            guard let data = data else {
-//                return .success(())
-//            }
-//            print("LCK 2")
-//            guard (200..<300).contains(response.statusCode) else {
-//                return .success(())
-//            }
-//            print("LCK 3")
-//            let error = try? JSONDecoder().decode(ErrorVO.self, from: data)
-//            return .failure(ValidationError(message: error?.message))
-//        }
-//    }
+    static var errorValidation: DataRequest.Validation {
+        { _, _, data in
+            guard let data = data,
+                  let dictionary = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+                  let success = dictionary["error"] as? Bool
+            else { return .success(()) }
+            if success {
+                return .success(())
+            } else {
+                let msg = dictionary["message"] as? String
+                return .failure(ValidationError(message: msg))
+            }
+        }
+    }
     
 }
 

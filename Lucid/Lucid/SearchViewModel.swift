@@ -31,7 +31,7 @@ extension SearchViewModel {
                 .get()
             self.ocid = result.ocid
         } catch {
-            
+            print("ERROR : \(error.localizedDescription)")
         }
     }
      
@@ -72,7 +72,9 @@ extension SearchViewModel {
                 .serializingDecodable(UnionRaiderVO.self, automaticallyCancelling: true)
                 .result.mapError{ $0.underlyingError ?? $0 }
                 .get()
-            print("union : \(result)")
+            
+            var highestBlockLevel: String?
+            
         } catch {
             
         }

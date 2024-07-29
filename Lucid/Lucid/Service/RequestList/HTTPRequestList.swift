@@ -17,7 +17,7 @@ extension HTTPRequestList {
     struct CharacterIDRequest: DataRequestFormProtocol, Encodable {
         var path: String { "maplestory/v1/id" }
         var method: HTTPMethod { .get }
-        var validation: DataRequest.Validation? { nil }
+        var validation: DataRequest.Validation? { ValidationError.errorValidation }
         var character_name: String
     }
     

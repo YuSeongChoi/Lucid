@@ -30,7 +30,8 @@ struct SearchView: View {
                                 try await viewModel.requestCharacterID(name: searchName)
                                 self.ocid = viewModel.ocid
                                 try await viewModel.requestBasicInfo()
-                                try await viewModel.requestUnionRaiderInfo()
+//                                try await viewModel.requestUnionRaiderInfo()
+                                
 //                                try await viewModel.requestDetailInfo()
 //                                saveContext()
                             } catch {
