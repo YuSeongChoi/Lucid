@@ -74,6 +74,7 @@
 		5DC12B312B6A1F61005FCC3A /* NonConformingWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC12B302B6A1F61005FCC3A /* NonConformingWrapper.swift */; };
 		5DC12B372B6A3672005FCC3A /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC12B362B6A3672005FCC3A /* Util.swift */; };
 		5DC12B402B6B577F005FCC3A /* LucidData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DC12B3E2B6B577F005FCC3A /* LucidData.xcdatamodeld */; };
+		5DF14B572C5B73F1004FD67A /* RankingVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF14B562C5B73F1004FD67A /* RankingVO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +162,7 @@
 		5DC12B302B6A1F61005FCC3A /* NonConformingWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonConformingWrapper.swift; sourceTree = "<group>"; };
 		5DC12B362B6A3672005FCC3A /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		5DC12B3F2B6B577F005FCC3A /* Character.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Character.xcdatamodel; sourceTree = "<group>"; };
+		5DF14B562C5B73F1004FD67A /* RankingVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingVO.swift; sourceTree = "<group>"; };
 		62F1D93A2BC26C7A008D3013 /* API.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = API.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -416,6 +418,7 @@
 				5DAD39552BC7D2D900E7A4E4 /* UnionVO.swift */,
 				5D2EB5992B43AD2A00EB396C /* ErrorVO.swift */,
 				5DC12B302B6A1F61005FCC3A /* NonConformingWrapper.swift */,
+				5DF14B562C5B73F1004FD67A /* RankingVO.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 				5D73269F2B3E946E00128EFE /* LoadingIndicatorHostingView.swift in Sources */,
 				5D0CFA7E2BAABB5F00330482 /* Basic+CoreDataProperties.swift in Sources */,
 				5D7326702B3D2C4C00128EFE /* SearchView.swift in Sources */,
+				5DF14B572C5B73F1004FD67A /* RankingVO.swift in Sources */,
 				5D7326AA2B3EA28200128EFE /* WindowAlertHostingView.swift in Sources */,
 				5D73264A2B3D0EFE00128EFE /* SwiftUI+Resources.swift in Sources */,
 				5D7326692B3D182E00128EFE /* MainRootView.swift in Sources */,

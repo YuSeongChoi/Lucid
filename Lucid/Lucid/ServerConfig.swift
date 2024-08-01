@@ -15,7 +15,7 @@ let ServerConstant: ServerConfiguration = {
 }()
 
 var API_KEY: String {
-    print("LCK : \(Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String)")
+//    print("LCK : \(Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String)")
     guard let key = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String else { return "" }
     return key
 }

@@ -20,34 +20,9 @@ struct SearchView: View {
     
     var body: some View {
         ScrollView {
-            VStack {
-                VStack(spacing: 20) {
-                    CommonTextField(placeHolder: "캐릭터명 입력", text: $searchName)
-
-                    Button("검색") {
-                        viewModel.taskStorage.insert(Task {
-                            do {
-                                try await viewModel.requestCharacterID(name: searchName)
-                                self.ocid = viewModel.ocid
-                                try await viewModel.requestBasicInfo()
-//                                try await viewModel.requestUnionRaiderInfo()
-                                
-//                                try await viewModel.requestDetailInfo()
-//                                saveContext()
-                            } catch {
-                                print(error.localizedDescription)
-                            }
-                        })
-                    }
-                    .buttonStyle(.purple)
-                }
-                
-                VStack {
-                    Text(viewModel.basicInfo.character_name)
-                    if let url = URL(string: viewModel.basicInfo.character_image) {
-                        AsyncImage(url: url)
-                    }
-                }
+            VStack(spacing: 30) {
+                searchTextFieldView
+                searchResultView
             }
             .padding(EdgeInsets(top: 30, leading: 20, bottom: 30, trailing: 20))
         }
@@ -58,6 +33,62 @@ struct SearchView: View {
             viewModel.taskStorage = []
         }
     }
+    
+    // MARK: 검색 텍스트필드 뷰
+    @ViewBuilder
+    private var searchTextFieldView: some View {
+        VStack(spacing: 20) {
+            CommonTextField(placeHolder: "캐릭터명 입력", text: $searchName)
+
+            Button("검색") {
+                viewModel.taskStorage.insert(Task {
+                    do {
+                        try await viewModel.requestCharacterID(name: searchName)
+                        self.ocid = viewModel.ocid
+                        viewModel.basicInfo = try await viewModel.requestBasicInfo()
+                        try await viewModel.requestUnionRankingInfo()
+//                                try await viewModel.requestUnionRaiderInfo()
+//                                try await viewModel.requestDetailInfo()
+//                                saveContext()
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                })
+            }
+            .buttonStyle(.purple)
+        }
+    }
+    
+    // MARK: 검색결과 뷰
+    @ViewBuilder
+    private var searchResultView: some View {
+        VStack(spacing: 30) {
+            VStack(spacing: 15) {
+                Text(viewModel.basicInfo.character_name)
+                    .font(R.font.pretendardRegular.swiftFontOfSize(13))
+                if let url = URL(string: viewModel.basicInfo.character_image) {
+                    AsyncImage(url: url)
+                }
+            }
+            
+            VStack(spacing: 15) {
+                if !viewModel.mainCharacterInfo.character_name.isEmpty {
+                    Text("본캐")
+                        .font(R.font.pretendardSemiBold.swiftFontOfSize(16))
+                    Text(viewModel.mainCharacterInfo.character_name)
+                        .font(R.font.pretendardRegular.swiftFontOfSize(13))
+                    if let url = URL(string: viewModel.mainCharacterInfo.character_image) {
+                        AsyncImage(url: url)
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+// MARK: - CoreData 관련
+extension SearchView {
     
     func saveContext() {
         do {
@@ -94,8 +125,4 @@ struct SearchView: View {
         saveContext()
     }
     
-}
-
-#Preview {
-    SearchView()
 }

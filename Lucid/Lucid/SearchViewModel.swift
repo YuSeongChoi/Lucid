@@ -14,6 +14,8 @@ final class SearchViewModel: ObservableObject, Identifiable {
     
     @Published var ocid: String = ""
     @Published var basicInfo: CharacterBasicVO = .init()
+    @Published var mainCharacterInfo: CharacterBasicVO = .init()
+    
     var taskStorage: Set<Task<Void,Never>> = []
     
 }
@@ -36,17 +38,15 @@ extension SearchViewModel {
     }
      
     /// 캐릭터 기본 정보 조회
-    func requestBasicInfo() async throws {
+    func requestBasicInfo() async throws -> CharacterBasicVO {
         do {
-            let result = try await HTTPRequestList.CharacterBasicInfoRequest(ocid: self.ocid)
+            return try await HTTPRequestList.CharacterBasicInfoRequest(ocid: self.ocid)
                 .buildDataRequest()
                 .serializingDecodable(CharacterBasicVO.self, automaticallyCancelling: true)
                 .result.mapError{ $0.underlyingError ?? $0 }
                 .get()
-            self.basicInfo = result
-            print("basic” : \(result)")
         } catch {
-            
+            throw error
         }
     }
     
@@ -58,7 +58,7 @@ extension SearchViewModel {
                 .serializingDecodable(CharacterDetailVO.self, automaticallyCancelling: true)
                 .result.mapError{ $0.underlyingError ?? $0 }
                 .get()
-            print("detail : \(result)")
+//            print("detail : \(result)")
         } catch {
             
         }
@@ -72,9 +72,24 @@ extension SearchViewModel {
                 .serializingDecodable(UnionRaiderVO.self, automaticallyCancelling: true)
                 .result.mapError{ $0.underlyingError ?? $0 }
                 .get()
+        } catch {
             
-            var highestBlockLevel: String?
+        }
+    }
+    
+    /// 유니온 랭킹 정보 조회
+    func requestUnionRankingInfo() async throws {
+        do {
+            let result = try await HTTPRequestList.UnionRankingInfoRequest(ocid: self.ocid)
+                .buildDataRequest()
+                .serializingDecodable(UnionRanking.UnionRankingRepo.self, automaticallyCancelling: true)
+                .result.mapError{ $0.underlyingError ?? $0 }
+                .get()
             
+            if let mainCharacter = result.ranking.first {
+                try await requestCharacterID(name: mainCharacter.character_name)
+                mainCharacterInfo = try await requestBasicInfo()
+            }
         } catch {
             
         }
