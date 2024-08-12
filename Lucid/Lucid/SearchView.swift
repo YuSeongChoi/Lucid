@@ -47,6 +47,8 @@ struct SearchView: View {
                         self.ocid = viewModel.ocid
                         viewModel.basicInfo = try await viewModel.requestBasicInfo()
                         try await viewModel.requestUnionRankingInfo()
+                        try await viewModel.requestEquipmentItemInfo(ocid: self.ocid)
+                        
 //                                try await viewModel.requestUnionRaiderInfo()
 //                                try await viewModel.requestDetailInfo()
 //                                saveContext()
@@ -58,13 +60,13 @@ struct SearchView: View {
             .buttonStyle(.purple)
         }
     }
-    
+        
     // MARK: 검색결과 뷰
     @ViewBuilder
     private var searchResultView: some View {
         VStack(spacing: 30) {
             VStack(spacing: 15) {
-                Text(viewModel.basicInfo.character_name)
+                       Text(viewModel.basicInfo.character_name)
                     .font(R.font.pretendardRegular.swiftFontOfSize(13))
                 if let url = URL(string: viewModel.basicInfo.character_image) {
                     AsyncImage(url: url)
