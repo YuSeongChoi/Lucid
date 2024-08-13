@@ -18,16 +18,22 @@ struct SearchView: View {
     @StateObject private var viewModel = SearchViewModel()
     @State private var searchName: String = ""
     
+    @State private var selectedItem: EquipmentVO? = nil
+    
     var body: some View {
         ScrollView {
             VStack(spacing: 30) {
                 searchTextFieldView
                 searchResultView
+                equipmentItemView
             }
             .padding(EdgeInsets(top: 30, leading: 20, bottom: 30, trailing: 20))
         }
         .scrollIndicators(.hidden)
         .padding(.vertical, 1)
+        .sheet(item: $selectedItem) { item in
+            Text(item.item_name)
+        }
         .onDisappear {
             viewModel.taskStorage.forEach{ $0.cancel() }
             viewModel.taskStorage = []
@@ -81,6 +87,45 @@ struct SearchView: View {
                         .font(R.font.pretendardRegular.swiftFontOfSize(13))
                     if let url = URL(string: viewModel.mainCharacterInfo.character_image) {
                         AsyncImage(url: url)
+                    }
+                }
+            }
+        }
+    }
+    
+    // MARK: 장비 아이템 뷰
+    @ViewBuilder
+    private var equipmentItemView: some View {
+        if !viewModel.basicInfo.character_name.isEmpty {
+            HStack {
+                Text("캐릭터 정보")
+                    .font(R.font.pretendardSemiBold.swiftFontOfSize(14))
+                Spacer()
+            }
+            
+            VStack(alignment: .leading, spacing: 10) {
+                Text(viewModel.basicInfo.character_name)
+                    .font(R.font.pretendardRegular.swiftFontOfSize(13))
+                
+                HStack(spacing: 15) {
+                    if let url = URL(string: viewModel.basicInfo.character_image) {
+                        AsyncImage(url: url)
+                    }
+                    Text(viewModel.equipmentItemInfo.character_class)
+                        .font(R.font.pretendardRegular.swiftFontOfSize(13))
+                    Spacer()
+                }
+                
+                ForEach(viewModel.equipmentItemInfo.item_equipment, id: \.self) { item in
+                    HStack {
+                        Text(item.item_equipment_slot)
+                        
+                        if let url = URL(string: item.item_icon) {
+                            AsyncImage(url: url)
+                        }
+                    }
+                    .onTapGesture {
+                        selectedItem = item
                     }
                 }
             }

@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct InfoView: View {
+    
+    @AppStorage("ocid") private var ocid: String = ""
+    
     var body: some View {
         Text("Info")
     }
-}
-
-#Preview {
-    InfoView()
+    
 }

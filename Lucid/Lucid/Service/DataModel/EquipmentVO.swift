@@ -36,7 +36,8 @@ struct CharacterItemEquipmentVO: Codable, Hashable {
 }
 
 /// 장비 정보
-struct EquipmentVO: Codable, Hashable {
+struct EquipmentVO: Codable, Hashable, Identifiable {
+    var id: UUID { .init() }
     /// 장비 부위 명
     @FallbackDecoding<EmptyString>
     var item_equipment_part: String = ""

@@ -15,6 +15,7 @@ final class SearchViewModel: ObservableObject, Identifiable {
     @Published var ocid: String = ""
     @Published var basicInfo: CharacterBasicVO = .init()
     @Published var mainCharacterInfo: CharacterBasicVO = .init()
+    @Published var equipmentItemInfo: CharacterItemEquipmentVO = .init()
     
     var taskStorage: Set<Task<Void,Never>> = []
     
@@ -98,7 +99,7 @@ extension SearchViewModel {
     /// 장착 장비 정보 조회(캐시 장비 제외)
     func requestEquipmentItemInfo(ocid: String) async throws {
         do {
-            let result = try await HTTPRequestList.CharacterItemEquipmentInfoRequest(ocid: ocid)
+            self.equipmentItemInfo = try await HTTPRequestList.CharacterItemEquipmentInfoRequest(ocid: ocid)
                 .buildDataRequest()
                 .serializingDecodable(CharacterItemEquipmentVO.self, automaticallyCancelling: true)
                 .result.mapError{ $0.underlyingError ?? $0 }
