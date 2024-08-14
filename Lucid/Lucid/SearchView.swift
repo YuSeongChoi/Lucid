@@ -18,21 +18,21 @@ struct SearchView: View {
     @StateObject private var viewModel = SearchViewModel()
     @State private var searchName: String = ""
     
-    @State private var selectedItem: EquipmentVO? = nil
+    @State private var infoToggle: Bool = false
     
     var body: some View {
         ScrollView {
             VStack(spacing: 30) {
                 searchTextFieldView
                 searchResultView
-                equipmentItemView
             }
             .padding(EdgeInsets(top: 30, leading: 20, bottom: 30, trailing: 20))
         }
         .scrollIndicators(.hidden)
         .padding(.vertical, 1)
-        .sheet(item: $selectedItem) { item in
-            Text(item.item_name)
+        .navigationDestination(isPresented: $infoToggle) {
+            EquipmentItemView(characterInfo: viewModel.basicInfo, itemInfo: viewModel.equipmentItemInfo)
+                .navigationTitle("정보 조회")
         }
         .onDisappear {
             viewModel.taskStorage.forEach{ $0.cancel() }
@@ -71,62 +71,52 @@ struct SearchView: View {
     @ViewBuilder
     private var searchResultView: some View {
         VStack(spacing: 30) {
-            VStack(spacing: 15) {
-                       Text(viewModel.basicInfo.character_name)
-                    .font(R.font.pretendardRegular.swiftFontOfSize(13))
-                if let url = URL(string: viewModel.basicInfo.character_image) {
-                    AsyncImage(url: url)
-                }
-            }
-            
-            VStack(spacing: 15) {
-                if !viewModel.mainCharacterInfo.character_name.isEmpty {
-                    Text("본캐")
-                        .font(R.font.pretendardSemiBold.swiftFontOfSize(16))
-                    Text(viewModel.mainCharacterInfo.character_name)
-                        .font(R.font.pretendardRegular.swiftFontOfSize(13))
-                    if let url = URL(string: viewModel.mainCharacterInfo.character_image) {
-                        AsyncImage(url: url)
-                    }
-                }
-            }
-        }
-    }
-    
-    // MARK: 장비 아이템 뷰
-    @ViewBuilder
-    private var equipmentItemView: some View {
-        if !viewModel.basicInfo.character_name.isEmpty {
-            HStack {
-                Text("캐릭터 정보")
-                    .font(R.font.pretendardSemiBold.swiftFontOfSize(14))
-                Spacer()
-            }
-            
-            VStack(alignment: .leading, spacing: 10) {
-                Text(viewModel.basicInfo.character_name)
-                    .font(R.font.pretendardRegular.swiftFontOfSize(13))
-                
-                HStack(spacing: 15) {
-                    if let url = URL(string: viewModel.basicInfo.character_image) {
-                        AsyncImage(url: url)
-                    }
-                    Text(viewModel.equipmentItemInfo.character_class)
-                        .font(R.font.pretendardRegular.swiftFontOfSize(13))
-                    Spacer()
-                }
-                
-                ForEach(viewModel.equipmentItemInfo.item_equipment, id: \.self) { item in
-                    HStack {
-                        Text(item.item_equipment_slot)
-                        
-                        if let url = URL(string: item.item_icon) {
+            if !viewModel.mainCharacterInfo.character_name.isEmpty {
+                HStack {
+                    VStack(spacing: 5) {
+                        Text(viewModel.basicInfo.character_name)
+                            .font(R.font.pretendardRegular.swiftFontOfSize(13))
+                        if let url = URL(string: viewModel.basicInfo.character_image) {
                             AsyncImage(url: url)
                         }
                     }
-                    .onTapGesture {
-                        selectedItem = item
+                    
+                    Spacer()
+                    
+                    HStack {
+                        Spacer()
+                        Button("정보 조회") {
+                            infoToggle.toggle()
+                        }
+                        .pretendMid(size: 14)
+                        .foregroundColor(.white)
+                        .padding(.all, 10)
+                        .background(Color.lightishPurple)
+                        .cornerRadius(10)
                     }
+                }
+                
+                HStack {
+                    VStack(spacing: 5) {
+                        Text("본캐")
+                            .font(R.font.pretendardSemiBold.swiftFontOfSize(13))
+                        Text(viewModel.mainCharacterInfo.character_name)
+                            .font(R.font.pretendardRegular.swiftFontOfSize(13))
+                        if let url = URL(string: viewModel.mainCharacterInfo.character_image) {
+                            AsyncImage(url: url)
+                        }
+                    }
+                    
+                    Spacer()
+                    
+                    Button("정보 조회") {
+                        infoToggle.toggle()
+                    }
+                    .pretendMid(size: 14)
+                    .foregroundColor(.white)
+                    .padding(.all, 10)
+                    .background(Color.lightishPurple)
+                    .cornerRadius(10)
                 }
             }
         }

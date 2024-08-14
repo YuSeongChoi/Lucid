@@ -76,6 +76,7 @@
 		5DC12B402B6B577F005FCC3A /* LucidData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DC12B3E2B6B577F005FCC3A /* LucidData.xcdatamodeld */; };
 		5DF14B572C5B73F1004FD67A /* RankingVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF14B562C5B73F1004FD67A /* RankingVO.swift */; };
 		5DF14B5B2C69F50E004FD67A /* EquipmentVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF14B5A2C69F50E004FD67A /* EquipmentVO.swift */; };
+		5DF14B5E2C6C8CF2004FD67A /* EquipmentItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF14B5D2C6C8CF2004FD67A /* EquipmentItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +166,7 @@
 		5DC12B3F2B6B577F005FCC3A /* Character.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Character.xcdatamodel; sourceTree = "<group>"; };
 		5DF14B562C5B73F1004FD67A /* RankingVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingVO.swift; sourceTree = "<group>"; };
 		5DF14B5A2C69F50E004FD67A /* EquipmentVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentVO.swift; sourceTree = "<group>"; };
+		5DF14B5D2C6C8CF2004FD67A /* EquipmentItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentItemView.swift; sourceTree = "<group>"; };
 		62F1D93A2BC26C7A008D3013 /* API.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = API.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -385,6 +387,7 @@
 			children = (
 				5D73266F2B3D2C4C00128EFE /* SearchView.swift */,
 				5D7326942B3D4C6300128EFE /* SearchViewModel.swift */,
+				5DF14B5D2C6C8CF2004FD67A /* EquipmentItemView.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 				5D73265F2B3D139100128EFE /* HTTPRequestProtocol.swift in Sources */,
 				5DC12B312B6A1F61005FCC3A /* NonConformingWrapper.swift in Sources */,
 				5DC12B372B6A3672005FCC3A /* Util.swift in Sources */,
+				5DF14B5E2C6C8CF2004FD67A /* EquipmentItemView.swift in Sources */,
 				5D73264E2B3D0F3100128EFE /* SwiftUI+Extension.swift in Sources */,
 				5D7325E62B3D08D100128EFE /* ContentView.swift in Sources */,
 				5D7326852B3D385800128EFE /* SimpleViewControllerRepresenter.swift in Sources */,
