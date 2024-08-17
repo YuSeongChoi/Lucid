@@ -35,6 +35,7 @@ extension SearchViewModel {
             self.ocid = result.ocid
         } catch {
             print("ERROR : \(error.localizedDescription)")
+            print("git test")
         }
     }
      
