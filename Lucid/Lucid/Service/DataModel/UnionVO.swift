@@ -9,6 +9,27 @@ import Foundation
 
 import CodableWrappers
 
+struct UnionBasicVO: Codable, Hashable {
+    /// 조회 기준일
+    @FallbackDecoding<EmptyString>
+    var date: String = ""
+    /// 유니온 레벨
+    @FallbackDecoding<EmptyInt64>
+    var union_level: Int64 = 0
+    /// 유니온 등급
+    @FallbackDecoding<EmptyString>
+    var union_grade: String = ""
+    /// 아티팩트 레벨
+    @FallbackDecoding<EmptyInt64>
+    var union_artifact_level: Int64 = 0
+    /// 보유 아티팩트 경험치
+    @FallbackDecoding<EmptyInt64>
+    var union_artifact_exp: Int64 = 0
+    /// 보유 아티팩트 포인트
+    @FallbackDecoding<EmptyInt64>
+    var union_artifact_point: Int64 = 0
+}
+
 struct UnionRaiderVO: Codable, Hashable {
     var date: String
     /// 유니온 공격대원 효과

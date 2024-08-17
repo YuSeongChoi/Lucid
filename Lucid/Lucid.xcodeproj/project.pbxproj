@@ -77,6 +77,7 @@
 		5DF14B572C5B73F1004FD67A /* RankingVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF14B562C5B73F1004FD67A /* RankingVO.swift */; };
 		5DF14B5B2C69F50E004FD67A /* EquipmentVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF14B5A2C69F50E004FD67A /* EquipmentVO.swift */; };
 		5DF14B5E2C6C8CF2004FD67A /* EquipmentItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF14B5D2C6C8CF2004FD67A /* EquipmentItemView.swift */; };
+		62D84C8B2C7082C300E56E56 /* EquipmentItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D84C8A2C7082C300E56E56 /* EquipmentItemViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +169,7 @@
 		5DF14B5A2C69F50E004FD67A /* EquipmentVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentVO.swift; sourceTree = "<group>"; };
 		5DF14B5D2C6C8CF2004FD67A /* EquipmentItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentItemView.swift; sourceTree = "<group>"; };
 		626B04D32C706FF8008C0809 /* API.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = API.xcconfig; sourceTree = "<group>"; };
+		62D84C8A2C7082C300E56E56 /* EquipmentItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentItemViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,6 +390,7 @@
 				5D73266F2B3D2C4C00128EFE /* SearchView.swift */,
 				5D7326942B3D4C6300128EFE /* SearchViewModel.swift */,
 				5DF14B5D2C6C8CF2004FD67A /* EquipmentItemView.swift */,
+				62D84C8A2C7082C300E56E56 /* EquipmentItemViewModel.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D0CFA7A2BAABB5F00330482 /* Detail+CoreDataProperties.swift in Sources */,
+				62D84C8B2C7082C300E56E56 /* EquipmentItemViewModel.swift in Sources */,
 				5D0CFA792BAABB5F00330482 /* Detail+CoreDataClass.swift in Sources */,
 				5D7326952B3D4C6300128EFE /* SearchViewModel.swift in Sources */,
 				5D0CFA7C2BAABB5F00330482 /* Stat+CoreDataProperties.swift in Sources */,

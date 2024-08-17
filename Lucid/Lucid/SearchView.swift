@@ -21,17 +21,19 @@ struct SearchView: View {
     @State private var infoToggle: Bool = false
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 30) {
-                searchTextFieldView
-                searchResultView
+        NavigationView {
+            ScrollView {
+                VStack(spacing: 30) {
+                    searchTextFieldView
+                    searchResultView
+                }
+                .padding(EdgeInsets(top: 30, leading: 20, bottom: 30, trailing: 20))
             }
-            .padding(EdgeInsets(top: 30, leading: 20, bottom: 30, trailing: 20))
+            .scrollIndicators(.hidden)
+            .padding(.vertical, 1)
         }
-        .scrollIndicators(.hidden)
-        .padding(.vertical, 1)
         .navigationDestination(isPresented: $infoToggle) {
-            EquipmentItemView(characterInfo: viewModel.basicInfo, itemInfo: viewModel.equipmentItemInfo)
+            EquipmentItemView(characterInfo: viewModel.basicInfo, characterDetailInfo: viewModel.detailInfo, itemInfo: viewModel.equipmentItemInfo)
                 .navigationTitle("정보 조회")
         }
         .onDisappear {
@@ -56,7 +58,7 @@ struct SearchView: View {
                         try await viewModel.requestEquipmentItemInfo(ocid: self.ocid)
                         
 //                                try await viewModel.requestUnionRaiderInfo()
-//                                try await viewModel.requestDetailInfo()
+                                try await viewModel.requestDetailInfo()
 //                                saveContext()
                     } catch {
                         print(error.localizedDescription)

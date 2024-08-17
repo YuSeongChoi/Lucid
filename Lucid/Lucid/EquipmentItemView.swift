@@ -9,10 +9,11 @@ import SwiftUI
 
 struct EquipmentItemView: View {
     
+    @AppStorage("ocid") private var ocid: String = ""
+    @StateObject private var viewModel = EquipmentItemViewModel()
     let characterInfo: CharacterBasicVO
+    let characterDetailInfo: CharacterDetailVO
     let itemInfo: CharacterItemEquipmentVO
-    
-    
     
     var body: some View {
         ScrollView {
@@ -20,6 +21,18 @@ struct EquipmentItemView: View {
                 equipmentItemView
             }
             .padding(EdgeInsets(top: 15, leading: 22, bottom: 15, trailing: 22))
+        }
+        .task {
+            do {
+                try await viewModel.requestUnionInfo(ocid: self.ocid)
+                try await viewModel.requestPopularityInfo(ocid: self.ocid)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        .onDisappear {
+            viewModel.taskStorage.forEach{ $0.cancel() }
+            viewModel.taskStorage = []
         }
     }
     
@@ -33,16 +46,37 @@ struct EquipmentItemView: View {
         }
         
         VStack(alignment: .leading, spacing: 10) {
-            HStack(spacing: 15) {
+            HStack(spacing: 10) {
                 if let url = URL(string: characterInfo.character_image) {
                     AsyncImage(url: url)
                 }
-                VStack(spacing: 10) {
-                    Text(itemInfo.character_class)
-                        .font(R.font.pretendardRegular.swiftFontOfSize(13))
+                
+                VStack(alignment: .leading, spacing: 5) {
                     Text(characterInfo.character_name)
-                        .font(R.font.pretendardRegular.swiftFontOfSize(13))
+                        .pretendSemiBold(size: 13)
+                    
+                    HStack(spacing: 3) {
+                        Text(characterInfo.world_name)
+                        
+                        Text(characterInfo.character_guild_name)
+                    }
+                    .pretendReg(size: 13)
+                    
+                    VStack(alignment: .leading, spacing: 1) {
+                        HStack(spacing: 3) {
+                            Text(itemInfo.character_class)
+                            Text("\(characterInfo.character_level)")
+                            Text("\(characterInfo.character_exp_rate)%")
+                        }
+                        
+                        HStack(spacing: 3) {
+                            Text("유니온 \(viewModel.unionInfo.union_level)")
+                            Text("인기도 \(viewModel.characterPopularity)")
+                        }
+                    }
+                    .pretendReg(size: 11)
                 }
+                
                 Spacer()
             }
             

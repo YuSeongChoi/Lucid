@@ -9,10 +9,12 @@ import Foundation
 
 import CodableWrappers
 
+/// 고유(oicd) 값
 struct CharacterIDVO: Codable, Hashable {
     var ocid: String
 }
 
+/// 캐릭터 기본 정보
 struct CharacterBasicVO: Codable, Hashable {
     /// 조회 기준일(KST, 일 단위 데이터로 시,분은 일괄 0으로 표기)
     var date: String = Date().string(format: "yyyy-MM-dd")
@@ -38,6 +40,7 @@ struct CharacterBasicVO: Codable, Hashable {
     var character_image: String = ""
 }
 
+/// 캐릭터 상세 정보
 struct CharacterDetailVO: Codable, Hashable {
     /// 조회 기준일
     var date: String = Date().string(format: "yyyy-MM-dd")
@@ -49,9 +52,16 @@ struct CharacterDetailVO: Codable, Hashable {
     var remain_ap: Int64 = 0
 }
 
+/// 스탯정보
 struct StatVO: Codable, Hashable {
     /// 스탯 명
     var stat_name: String = ""
     /// 스탯 값
     var stat_value: String = ""
+}
+
+/// 인기도
+struct PopularityVO: Codable, Hashable {
+    var date: String
+    var popularity: Int64
 }
