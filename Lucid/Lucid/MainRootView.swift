@@ -37,7 +37,3 @@ struct MainRootView: View {
     }
     
 }
-
-#Preview {
-    MainRootView()
-}
