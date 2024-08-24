@@ -26,6 +26,9 @@ struct EquipmentItemView: View {
             do {
                 try await viewModel.requestUnionInfo(ocid: self.ocid)
                 try await viewModel.requestPopularityInfo(ocid: self.ocid)
+                let world_type = characterInfo.world_name.contains("리부트") ? 1 : 0
+                viewModel.totalRanking = try await viewModel.requestOverallRankingInfo(ocid: self.ocid, world_name: "", world_type: world_type)
+                viewModel.serverRanking = try await viewModel.requestOverallRankingInfo(ocid: self.ocid, world_name: characterInfo.world_name, world_type: world_type)
             } catch {
                 print(error.localizedDescription)
             }
@@ -72,6 +75,11 @@ struct EquipmentItemView: View {
                         HStack(spacing: 3) {
                             Text("유니온 \(viewModel.unionInfo.union_level)")
                             Text("인기도 \(viewModel.characterPopularity)")
+                        }
+                        
+                        HStack(spacing: 3) {
+                            Text("종합 \(viewModel.totalRanking)위")
+                            Text("월드 \(viewModel.serverRanking)위")
                         }
                     }
                     .pretendReg(size: 11)

@@ -84,4 +84,40 @@ extension HTTPRequestList {
         var date: String = Date().addDay(n: -1).string(format: "yyyy-MM-dd")
     }
     
+    // MARK: 종합 랭킹 정보 조회
+    struct RankingOverallInfoRequest: DataRequestFormProtocol, Encodable {
+        var path: String { "maplestory/v1/ranking/overall" }
+        var method: HTTPMethod { .get }
+        var validation: DataRequest.Validation? { nil }
+        var ocid: String
+        var date: String = Date().addDay(n: -1).string(format: "yyyy-MM-dd")
+        var world_name: String? = nil
+        /// 월드 타입(0:일반, 1: 리부트)
+        var world_type: Int8? = nil
+        var `class`: String? = nil
+        var page: Int32? = nil
+        
+        func asURLRequest() throws -> URLRequest {
+            var parameters: [String: Encodable] = [
+                "ocid": ocid,
+                "date": date
+            ]
+            
+            if let world_name = world_name, !world_name.isEmpty {
+                parameters["world_name"] = world_name
+            }
+            if let world_type = world_type {
+                parameters["world_type"] = world_type
+            }
+            if let `class` = `class`, !`class`.isEmpty {
+                parameters["class"] = `class`
+            }
+            if let page = page {
+                parameters["page"] = page
+            }
+            
+            return try encoder.encodeErased(parameters, into: baseRequest)
+        }
+    }
+    
 }

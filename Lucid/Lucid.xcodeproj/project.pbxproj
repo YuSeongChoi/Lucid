@@ -78,6 +78,7 @@
 		5DF14B5B2C69F50E004FD67A /* EquipmentVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF14B5A2C69F50E004FD67A /* EquipmentVO.swift */; };
 		5DF14B5E2C6C8CF2004FD67A /* EquipmentItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF14B5D2C6C8CF2004FD67A /* EquipmentItemView.swift */; };
 		62D84C8B2C7082C300E56E56 /* EquipmentItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D84C8A2C7082C300E56E56 /* EquipmentItemViewModel.swift */; };
+		62D84C912C79BE0700E56E56 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D84C902C79BE0700E56E56 /* AnyEncodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +171,7 @@
 		5DF14B5D2C6C8CF2004FD67A /* EquipmentItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentItemView.swift; sourceTree = "<group>"; };
 		626B04D32C706FF8008C0809 /* API.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = API.xcconfig; sourceTree = "<group>"; };
 		62D84C8A2C7082C300E56E56 /* EquipmentItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentItemViewModel.swift; sourceTree = "<group>"; };
+		62D84C902C79BE0700E56E56 /* AnyEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyEncodable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				5D73265E2B3D139100128EFE /* HTTPRequestProtocol.swift */,
+				62D84C902C79BE0700E56E56 /* AnyEncodable.swift */,
 				5D73265C2B3D137100128EFE /* HTTPClient.swift */,
 				5D7326972B3D5EA700128EFE /* DataModel */,
 				5D7326642B3D17D200128EFE /* RequestList */,
@@ -600,6 +603,7 @@
 				5D7326952B3D4C6300128EFE /* SearchViewModel.swift in Sources */,
 				5D0CFA7C2BAABB5F00330482 /* Stat+CoreDataProperties.swift in Sources */,
 				5D7326622B3D13CD00128EFE /* ServerConfig.swift in Sources */,
+				62D84C912C79BE0700E56E56 /* AnyEncodable.swift in Sources */,
 				5D73268D2B3D3BA600128EFE /* CustomStyle.swift in Sources */,
 				5DAD39562BC7D2D900E7A4E4 /* UnionVO.swift in Sources */,
 				5D7326772B3D2C7F00128EFE /* Constants.swift in Sources */,
