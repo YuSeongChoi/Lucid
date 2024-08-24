@@ -120,4 +120,13 @@ extension HTTPRequestList {
         }
     }
     
+    // MARK: 무릉도장 최고 기록 정보 조회
+    struct DojangBestRecordInfoRequest: DataRequestFormProtocol, Encodable {
+        var path: String { "maplestory/v1/character/dojang" }
+        var method: HTTPMethod { .get }
+        var validation: DataRequest.Validation? { nil }
+        var date: String = Date().addDay(n: -1).string(format: "yyyy-MM-dd")
+        var ocid: String
+    }
+    
 }

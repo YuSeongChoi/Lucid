@@ -11,11 +11,16 @@ import Alamofire
 
 @MainActor
 final class EquipmentItemViewModel: Identifiable, ObservableObject {
-    
+    /// 유니온 정보
     @Published var unionInfo: UnionBasicVO = .init()
+    /// 인기도
     @Published var characterPopularity: Int64 = 0
+    /// 전체랭킹
     @Published var totalRanking: Int32 = 0
+    /// 서버랭킹
     @Published var serverRanking: Int32 = 0
+    /// 무릉도장 최고 층수
+    @Published var dojangBestRecord: Int64 = 0
     
     var taskStorage: Set<Task<Void,Never>> = []
     
@@ -66,6 +71,20 @@ extension EquipmentItemViewModel {
             print(error.localizedDescription)
         }
         return 0
+    }
+    
+    /// 무릉도장 최고 기록 조회
+    func requestDojangBestRecordInfo(ocid: String) async throws {
+        do {
+            let result = try await HTTPRequestList.DojangBestRecordInfoRequest(ocid: ocid)
+                .buildDataRequest()
+                .serializingDecodable(CharacterDojangVO.self, automaticallyCancelling: true)
+                .result.mapError{ $0.underlyingError ?? $0 }
+                .get()
+            self.dojangBestRecord = result.dojang_best_floor
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
 }

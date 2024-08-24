@@ -65,3 +65,24 @@ struct PopularityVO: Codable, Hashable {
     var date: String
     var popularity: Int64
 }
+
+struct CharacterDojangVO: Codable, Hashable {
+    /// 조회 기준일
+    @FallbackDecoding<EmptyString>
+    var date: String = ""
+    /// 캐릭터 직업
+    @FallbackDecoding<EmptyString>
+    var character_class: String = ""
+    /// 월드 명
+    @FallbackDecoding<EmptyString>
+    var world_name: String = ""
+    /// 무릉도장 최고 기록 층수
+    @FallbackDecoding<EmptyInt64>
+    var dojang_best_floor: Int64 = 0
+    /// 무릉도장 최고 기록 달성 일(KST, 일 단위 데이터로 시,분은 일괄 0으로 표기)
+    @FallbackDecoding<EmptyString>
+    var date_dojang_record: String = ""
+    /// 무릉도장 최고 층수 클리어에 걸린 시간(초)
+    @FallbackDecoding<EmptyInt64>
+    var dojang_best_time: Int64 = 0
+}

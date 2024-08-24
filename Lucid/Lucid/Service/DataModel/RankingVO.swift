@@ -54,6 +54,7 @@ struct OveralRankingVO: Codable, Hashable {
     /// 캐릭터 인기도
     var character_popularity: Int32 = 0
     /// 길드 명
+    @FallbackDecoding<EmptyString>
     var character_guildname: String = ""
     
     struct OveralRankingRepo: Codable, Hashable {
