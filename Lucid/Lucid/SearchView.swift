@@ -18,24 +18,16 @@ struct SearchView: View {
     @StateObject private var viewModel = SearchViewModel()
     @State private var searchName: String = ""
     
-    @State private var infoToggle: Bool = false
-    
     var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack(spacing: 30) {
-                    searchTextFieldView
-                    searchResultView
-                }
-                .padding(EdgeInsets(top: 30, leading: 20, bottom: 30, trailing: 20))
+        ScrollView {
+            VStack(spacing: 30) {
+                searchTextFieldView
+                searchResultView
             }
-            .scrollIndicators(.hidden)
-            .padding(.vertical, 1)
+            .padding(EdgeInsets(top: 30, leading: 20, bottom: 30, trailing: 20))
         }
-        .navigationDestination(isPresented: $infoToggle) {
-            EquipmentItemView(characterInfo: viewModel.basicInfo, characterDetailInfo: viewModel.detailInfo, itemInfo: viewModel.equipmentItemInfo)
-                .navigationTitle("정보 조회")
-        }
+        .scrollIndicators(.hidden)
+        .padding(.vertical, 1)
         .onDisappear {
             viewModel.taskStorage.forEach{ $0.cancel() }
             viewModel.taskStorage = []
@@ -87,8 +79,11 @@ struct SearchView: View {
                     
                     HStack {
                         Spacer()
-                        Button("정보 조회") {
-                            infoToggle.toggle()
+                        NavigationLink {
+                            EquipmentItemView(characterInfo: viewModel.basicInfo, characterDetailInfo: viewModel.detailInfo, itemInfo: viewModel.equipmentItemInfo)
+                                .navigationTitle("정보 조회")
+                        } label: {
+                            Text("정보 조회")
                         }
                         .pretendMid(size: 14)
                         .foregroundColor(.white)
@@ -111,8 +106,11 @@ struct SearchView: View {
                     
                     Spacer()
                     
-                    Button("정보 조회") {
-                        infoToggle.toggle()
+                    NavigationLink {
+                        EquipmentItemView(characterInfo: viewModel.basicInfo, characterDetailInfo: viewModel.detailInfo, itemInfo: viewModel.equipmentItemInfo)
+                            .navigationTitle("정보 조회")
+                    } label: {
+                        Text("정보 조회")
                     }
                     .pretendMid(size: 14)
                     .foregroundColor(.white)
