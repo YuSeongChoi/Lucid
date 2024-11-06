@@ -101,11 +101,10 @@ struct AlertEventMonitor: EventMonitor {
         guard let error = request.error, !error.isExplicitlyCancelledError else {
             return
         }
-        if let dataRequest = request as? DataRequest, dataRequest.convertible is URLRequestManagedErrorProtocol {
-            
-        } else {
-            let notification = Notification(name: WindowAlertHostingView.AlertNotificationName, object: error.underlyingError ?? error)
-            NotificationCenter.default.post(notification)
+        
+        if let dataRequest = request as? DataRequest,
+        let data = dataRequest.data {
+            processErrorData(data, fallbackError: error)
         }
     }
     
@@ -115,10 +114,29 @@ struct AlertEventMonitor: EventMonitor {
             return
         }
         
-        if request.convertible is URLRequestManagedErrorProtocol {
+        if let data = response.data {
+            processErrorData(data, fallbackError: error)
+        }
+    }
+    
+    private func processErrorData(_ data: Data, fallbackError: Error?) {
+        // JSON 디코딩
+        if let apiError = try? JSONDecoder().decode(APIError.self, from: data) {
+            let errorMessage: String
+            switch apiError.error.name {
+            case "OPENAPI00004":
+                errorMessage = "유효하지 않은 파라미터입니다."
+            default:
+                errorMessage = apiError.error.message // 기본 메시지
+            }
             
+            let notification = Notification(
+                name: WindowAlertHostingView.AlertNotificationName,
+                object: ["errorMessage": errorMessage]
+            )
+            NotificationCenter.default.post(notification)
         } else {
-            let notification = Notification(name: WindowAlertHostingView.AlertNotificationName, object: error.underlyingError ?? error)
+            let notification = Notification(name: WindowAlertHostingView.AlertNotificationName, object: ["errorMessage": fallbackError?.localizedDescription ?? "에러 발생"])
             NotificationCenter.default.post(notification)
         }
     }
