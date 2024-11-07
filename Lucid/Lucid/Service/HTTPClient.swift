@@ -99,6 +99,7 @@ struct AlertEventMonitor: EventMonitor {
     
     func requestDidFinish(_ request: Request) {
         guard let error = request.error, !error.isExplicitlyCancelledError else {
+            postDefaultError(nil)
             return
         }
         
@@ -136,9 +137,17 @@ struct AlertEventMonitor: EventMonitor {
             )
             NotificationCenter.default.post(notification)
         } else {
-            let notification = Notification(name: WindowAlertHostingView.AlertNotificationName, object: ["errorMessage": fallbackError?.localizedDescription ?? "에러 발생"])
-            NotificationCenter.default.post(notification)
+            postDefaultError(fallbackError)
         }
+    }
+    
+    private func postDefaultError(_ error: Error?) {
+        let errorMessage = error?.localizedDescription ?? "알 수 없는 오류 발생"
+        let notification = Notification(
+            name: WindowAlertHostingView.AlertNotificationName,
+            object: ["errorMessage" : errorMessage]
+        )
+        NotificationCenter.default.post(notification)
     }
     
 }
