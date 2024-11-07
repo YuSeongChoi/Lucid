@@ -19,24 +19,34 @@ struct CharacterBasicVO: Codable, Hashable {
     /// 조회 기준일(KST, 일 단위 데이터로 시,분은 일괄 0으로 표기)
     var date: String = Date().string(format: "yyyy-MM-dd")
     /// 캐릭터 명
+    @FallbackDecoding<EmptyString>
     var character_name: String = ""
     ///필드 명
+    @FallbackDecoding<EmptyString>
     var world_name: String = ""
     /// 캐릭터 성별
+    @FallbackDecoding<EmptyString>
     var character_gender: String = ""
     /// 캐릭터 직업
+    @FallbackDecoding<EmptyString>
     var character_class: String = ""
     /// 캐릭터 전직 차수
+    @FallbackDecoding<EmptyString>
     var character_class_level: String = ""
     /// 캐릭터 레벨
+    @FallbackDecoding<EmptyInt64>
     var character_level: Int64 = 0
     /// 현재 레벨에서 보유한 경험치
+    @FallbackDecoding<EmptyInt64>
     var character_exp: Int64 = 0
     /// 현재 레벨에서 경험치 퍼센트
+    @FallbackDecoding<EmptyString>
     var character_exp_rate: String = ""
     /// 캐릭터 소속 길드 명
+    @FallbackDecoding<EmptyString>
     var character_guild_name: String = ""
     /// 캐릭터 외형 이미지
+    @FallbackDecoding<EmptyString>
     var character_image: String = ""
 }
 

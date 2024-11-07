@@ -99,13 +99,13 @@ struct AlertEventMonitor: EventMonitor {
     
     func requestDidFinish(_ request: Request) {
         guard let error = request.error, !error.isExplicitlyCancelledError else {
-            postDefaultError(nil)
             return
         }
         
-        if let dataRequest = request as? DataRequest,
-        let data = dataRequest.data {
+        if let dataRequest = request as? DataRequest, let data = dataRequest.data {
             processErrorData(data, fallbackError: error)
+        } else {
+            postDefaultError(error)
         }
     }
     
