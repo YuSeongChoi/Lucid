@@ -14,10 +14,13 @@ struct CharacterItemEquipmentVO: Codable, Hashable {
     /// 조회 기준일
     var date: String = Date().string(format: "yyyy-MM-dd")
     /// 캐릭터 성별
+    @FallbackDecoding<EmptyString>
     var character_gender: String = ""
     /// 캐릭터 직업
+    @FallbackDecoding<EmptyString>
     var character_class: String = ""
     /// 적용 중인 장비 프리셋 번호(number)
+    @FallbackDecoding<EmptyInt64>
     var preset_no: Int64 = 0
     /// 장비 정보
     var item_equipment: [EquipmentVO] = []

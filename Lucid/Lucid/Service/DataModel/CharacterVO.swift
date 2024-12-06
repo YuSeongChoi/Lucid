@@ -55,10 +55,12 @@ struct CharacterDetailVO: Codable, Hashable {
     /// 조회 기준일
     var date: String = Date().string(format: "yyyy-MM-dd")
     /// 캐릭터 직업
+    @FallbackDecoding<EmptyString>
     var character_class: String = ""
     /// 현재 스탯 정보
     var final_stat: [StatVO] = []
     /// 잔여 ap
+    @FallbackDecoding<EmptyInt64>
     var remain_ap: Int64 = 0
 }
 
