@@ -88,13 +88,12 @@ struct EquipmentItemView: View {
                         }
                         
                         HStack(spacing: 3) {
+                            let power = characterDetailInfo.final_stat.filter{ $0.stat_name == "전투력"}.first?.stat_value
                             Text("무릉 \(viewModel.dojangBestRecord)층")
-//                            characterDetailInfo.final_stat.map { stat in
-//                                if stat.stat_name == "전투력" {
-//                                    return stat.stat_value
-//                                }
-//                            }
-                            Text("전투력 \(characterDetailInfo.final_stat.filter{ $0.stat_name == "전투력"}.first?.stat_value ?? "0".formattedDecimalString())")
+                            
+                            if let powerStat = power {
+                                Text("전투력 \(powerStat.formattedDecimalString())")
+                            }
                             Spacer()
                         }
                     }
