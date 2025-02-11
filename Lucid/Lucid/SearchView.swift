@@ -80,8 +80,8 @@ struct SearchView: View {
                     HStack {
                         Spacer()
                         NavigationLink {
-                            EquipmentItemView(characterInfo: viewModel.basicInfo, characterDetailInfo: viewModel.detailInfo, itemInfo: viewModel.equipmentItemInfo)
-                                .navigationTitle("정보 조회")
+                            CharacterView(characterInfo: viewModel.basicInfo, characterDetailInfo: viewModel.detailInfo, itemInfo: viewModel.equipmentItemInfo)
+                                .navigationTitle("캐릭터 정보")
                         } label: {
                             Text("정보 조회")
                         }
@@ -107,8 +107,8 @@ struct SearchView: View {
                     Spacer()
                     
                     NavigationLink {
-                        EquipmentItemView(characterInfo: viewModel.basicInfo, characterDetailInfo: viewModel.detailInfo, itemInfo: viewModel.equipmentItemInfo)
-                            .navigationTitle("정보 조회")
+                        CharacterView(characterInfo: viewModel.basicInfo, characterDetailInfo: viewModel.detailInfo, itemInfo: viewModel.equipmentItemInfo)
+                            .navigationTitle("캐릭터 정보")
                     } label: {
                         Text("정보 조회")
                     }
